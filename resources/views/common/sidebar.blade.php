@@ -240,9 +240,7 @@
 	</ul>
 </nav>
 </aside>
-
 <!-- Logout Modal -->
-
 <div class="modal fade" id="logout_popup" tabindex="-1" role="dialog" aria-labelledby="erasemodalLongTitle" data-backdrop="static" data-keyboard="false">
 	<div class="modal-dialog modal-dialog-centered" role="document">
 		<div class="modal-content">

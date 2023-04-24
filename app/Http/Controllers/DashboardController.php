@@ -39,7 +39,7 @@ class DashboardController extends Controller {
           $request  = array('student_id' => Session::get('user_id_new'),'token' => Session::get('token'),'token_app_type' => 'ieuk_new');
           $endPoint = "individual_course_list";
           $available_courses = curl_get($endPoint, $request);
-          // dd($available_courses)
+          
           return view('dashboard.purchase_courses', compact('request','available_courses'));
         }
         return view('login.login-new');
@@ -58,6 +58,12 @@ class DashboardController extends Controller {
         $data           = curl_get($endPoint, $request);
         $onlyCourse     = $data['student_courses'];
         echo \View::make('login.topic_html',compact('topics','expire_flag','onlyCourse','coursid'))->render();
+    }
+    public function purchase(Request $request)
+    {
+         $params = $request->all(); 
+         $level_id = $params['level_id'];//dd($params);
+         
     }
     public function login_post_new(Request $request) {
         $profileStatus= ''; 

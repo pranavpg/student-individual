@@ -1,4 +1,44 @@
 @extends('layouts.app')
+<link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css">
+	
+  <link rel="stylesheet" href="https://teacher.englishapp.uk/public/css/all.min.css?v=91202" />
+	<link href="https://teacher.englishapp.uk/public/css/_style.css?v=91202" rel="stylesheet">
+	<link href="https://teacher.englishapp.uk/public/css/student-style.css?v=91202" rel="stylesheet">
+	<link href="https://teacher.englishapp.uk/public/css/developer.css?v=91202" rel="stylesheet">
+	<link href="https://teacher.englishapp.uk/public/student/css/custom.css?v=91202" rel="stylesheet">
+	<link href="https://teacher.englishapp.uk/public/css/custom.css?v=91202" rel="stylesheet">
+	<script src="https://teacher.englishapp.uk/public/js/jquery-3.5.1.min.js?v=91202"></script>
+	<script src="https://teacher.englishapp.uk/public/js/bootstrap.min.js?v=91202"></script>
+	<script src="https://teacher.englishapp.uk/public/js/popper.min.js?v=91202"></script>
+	<script src="https://teacher.englishapp.uk/public/teacher/js/owl.carousel.js?v=91202"></script>
+	<script src="https://teacher.englishapp.uk/public/teacher/js/general.js?v=91202"></script>
+	<script src="https://teacher.englishapp.uk/public/js/owl.carousel.js?v=91202"></script>
+	<script src="https://teacher.englishapp.uk/public/js/jquery.validate.min.js?v=91202"></script>
+	<script src="https://teacher.englishapp.uk/public/js/additional-methods.min.js?v=91202 "></script>
+	<script src="https://teacher.englishapp.uk/public/js/audioplayer.js?v=91202"></script>
+	<link href="https://teacher.englishapp.uk/public/css/audioplayer.css?v=91202" rel="stylesheet">
+	<script src="https://teacher.englishapp.uk/public/teacher/js/pdf-popup.js?v=91202"></script>
+	<link href="https://teacher.englishapp.uk/public/css/jquery-ui.css?v=91202" rel="stylesheet">
+	<link href="https://teacher.englishapp.uk/public/css/bootstrap-clockpicker.min.css?v=91202" rel="stylesheet">
+	<script src="https://teacher.englishapp.uk/public/js/select2.js?v=91202"></script>
+	<link href="https://teacher.englishapp.uk/public/css/select2.min.css?v=91202" rel="stylesheet">
+	<link href="https://teacher.englishapp.uk/public/css/dropdown.css?v=91202" rel="stylesheet" />
+	<link href="https://teacher.englishapp.uk/public/css/d-scrollbar.css?v=91202" rel="stylesheet">
+	<script src="https://teacher.englishapp.uk/public/js/d-scrollbar/jquery.scrollbar.js?v=91202"></script>
+	<link rel="stylesheet" href="https://teacher.englishapp.uk/public/css/font-awesome-6.1.1.css?v=91202">
+	<link rel="stylesheet" href="https://teacher.englishapp.uk/public/css/dataTables.bootstrap5.min.css?v=91202">
+	<script type="text/javascript" src="https://teacher.englishapp.uk/public/js/jquery.dataTables.min.js?v=91202"></script>
+	<script type="text/javascript" src="https://teacher.englishapp.uk/public/js/dataTables.bootstrap5.min.js?v=91202"></script>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <script src="https://weareoutman.github.io/clockpicker/dist/bootstrap-clockpicker.min.js"></script>
+
+  <link rel="stylesheet" href="https://teacher.englishapp.uk/public/css/1.13.1-jquery-ui.css?v=91202">
+
+  <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+  <link href="https://teacher.englishapp.uk/public/css/responsive1.css?v=91202" rel="stylesheet"> 
+  <link href="https://teacher.englishapp.uk/public/css/responsive2.css?v=91202" rel="stylesheet">
 @section('content')
 @include('common.sidebar')
 <link rel="stylesheet" href="https://cdn.plyr.io/3.5.6/plyr.css">
@@ -31,9 +71,9 @@
 				<div class="col-xl-12 d-none d-sm-flex justify-content-between">
 					<div class="col-12 col-sm-8 col-md-8 d-flex justify-content-end pr-0">
 						<ul class="list-inline marking-button float-left mb-0">
-							<li class="list-inline-item"><a href="javascript:void(0);" class="findOne btn btn-danger " style="width:90px;">Pending</a></li>
-							<li class="list-inline-item"><a href="javascript:void(0);" class="findOne btn btn-light" style="width:91px;">Extra</a></li>
-							<li class="list-inline-item"><a href="javascript:void(0)" class="findOne btn btn-light">Work Record</a></li>
+							<li class="list-inline-item"><a href="javascript:void(0);" class="findOne btn btn-danger pending-tab" style="width:90px;">Pending</a></li>
+							<li class="list-inline-item"><a href="javascript:void(0);" class="findOne btn btn-light extra-tab" style="width:91px;">Extra</a></li>
+							<li class="list-inline-item"><a href="javascript:void(0)" class="findOne btn btn-light work-tab">Work Record</a></li>
 						</ul>
 					</div>
 				</div>
@@ -307,11 +347,11 @@ $(function() {
 		}else if($(this).attr("data") == "Extra"){
 			window.type = 2;
 			window.typeofMarking = "2";
-			$("#selectStudent").modal();
+			getAlldata();
 		}else{
 			window.typeofMarking = "3";
 			window.type = 3;
-			$("#selectStudent").modal();
+			getAlldata();
 		}
 		$('.findOne').removeClass("btn-danger");
 		$('.findOne').addClass("btn-light");
@@ -336,7 +376,11 @@ $(function() {
 			$('#pendingTaskParent').fadeOut();
 			window.type = 2;
 			window.typeofMarking = "2";
-			$("#selectStudent").modal();
+			$('.findOne').removeClass("btn-danger");
+			$('.findOne').addClass('btn-light');
+			$(this).addClass("btn-danger");
+			$(this).removeClass("btn-light");
+		  getAlldata();
 		}else if($(this).html() == "Pending") {
 			
 			$('#pendingTaskParent').fadeOut();
@@ -356,7 +400,11 @@ $(function() {
 			$('#pendingTaskParent').fadeIn();
 			window.typeofMarking = "3";
 			window.type = 3;
-			$("#selectStudent").modal();
+			$('.findOne').removeClass("btn-danger");
+			$('.findOne').addClass('btn-light');
+			$(this).addClass("btn-danger");
+			$(this).removeClass("btn-light");
+		  getAlldata();
 		}
 	});
 	$('#course_select').change(function() {

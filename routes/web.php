@@ -215,4 +215,5 @@ Route::get('/practice-detail/{topicId}/{taskId}/{studentId}/{showPrevious?}', ['
 Route::post('/practice-detail/previous-marking', ['uses'=>'MarkingController@showPreviousMarking'])->name('show_previous_history');
 Route::post('/practice-submit-marking', ['uses'=>'MarkingController@savePracticeSubmitMarking']);
 Route::post('/rename-audio',['uses'=>'MarkingController@renameAudio']);
+Route::post('/purchase',['uses'=>'DashboardController@purchase']);
 
