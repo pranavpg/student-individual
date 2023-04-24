@@ -1,0 +1,226 @@
+.main {
+    .profile-page {
+        max-width: 100%;
+    }
+
+    .profile-heading {
+        margin-bottom: 4rem;
+
+        .heading-left {
+            position: relative;
+            padding-left: 80px;
+
+            .picture {
+                position: absolute;
+                width: 70px;
+                height: 70px;
+                left: 0;
+                padding: 6px 5px;
+
+                background: {
+                    image: url('../../public/images/profile-picture-bg.svg');
+                    position: center;
+                    repeat: no-repeat;
+                }
+            }
+
+            h1 {
+                margin-bottom: 0;
+
+                font: {
+                    size: 2.125rem;
+                    weight: 600;
+                }
+
+                @media screen and (max-width: 1399px) {
+                    font: {
+                        size: 1.75rem;
+                    }
+                }
+            }
+
+            p {
+                margin-bottom: 0;
+
+                font: {
+                    size: 1.125rem;
+                    weight: 600;
+                }
+
+                color: $light-blue;
+            }
+        }
+
+        .heading-right {
+            .btn {
+                span {
+                    margin-right: .5rem;
+                }
+            }
+        }
+    }
+
+    .profile {
+        h3 {
+            position: relative;
+            margin-bottom: 1rem;
+            color: #3E5971;
+
+            a {
+                color: $pink;
+            }
+
+            &:not(:first-child) {
+                margin-top: 1.75rem;
+            }
+
+            .medical-dot {
+                position: absolute;
+                display: block;
+                width: 8px;
+                height: 8px;
+                top: 7px;
+                left: -20px;
+                border-radius: 50%;
+                background-color: $pink;
+            }
+        }
+
+        p {
+            color: $light-blue;
+
+            small {
+                font: {
+                    size: .875rem;
+                }
+            }
+        }
+
+        .form-control {
+            color: $light-blue;
+
+            &:disabled {
+                background-color: transparent;
+            }
+        }
+
+        &:first-child {
+            border-right: 1px solid #edf0f7;
+            padding-right: 4rem;
+
+            @media screen and (max-width: 1499px) {
+                padding-right: 2rem;
+            }
+        }
+
+        &:last-child {
+            padding-left: 4rem;
+        }
+
+        .list-register {
+            .btn {
+                min-width: 160px;
+                border: 1px solid #f6f6f6;
+                background-color: transparent;
+
+                &:hover,
+                &:focus,
+                &:active {
+                    border: 1px solid #f6f6f6;
+                    color: $light-blue;
+                    background-color: transparent;
+                }
+            }
+        }
+
+        .emeregency-box {
+            position: relative;
+            border: 1px solid #f7f7f7;
+            border-radius: .5rem;
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1.25rem;
+
+            .emeregency-contact {
+                margin-bottom: 1rem;
+                color: $light-blue;
+
+                a {
+                    color: $light-blue;
+                }
+            }
+
+            .edit {
+                position: absolute;
+                top: .5rem;
+                right: 1rem;
+                cursor: pointer;
+                z-index: 2;
+            }
+        }
+
+        .btn-add-emeregency {
+            border: 1px solid #f7f7f7;
+            padding: .875rem 1rem;
+            background-color: transparent;
+            color: $pink;
+        }
+
+
+    }
+}
+
+.update-modal {
+
+    max-width: 380px;
+
+    .close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+
+        font: {
+            size: 2rem;
+        }
+
+        color: $pink;
+        opacity: 1;
+        z-index: 1;
+    }
+
+    .modal-body {
+        padding: 4rem;
+
+        .picture {
+            display: block;
+            margin-bottom: .25rem;
+        }
+
+        h2 {
+            margin-bottom: 2.5rem;
+
+            font: {
+                size: 1.5rem;
+            }
+
+            color: #3E5971;
+
+            strong {
+                color: #227998;
+            }
+        }
+
+        h3 {
+            font: {
+                size: 1.125rem;
+            }
+
+            color: #3E5971;
+        }
+
+        .btn {
+            min-width: 150px;
+            padding: .75rem 1rem;
+            border-radius: 10px;
+        }
+    }
+}

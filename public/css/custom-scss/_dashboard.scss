@@ -1,0 +1,543 @@
+.dashboard {
+    min-height: 100vh;
+}
+
+.main {
+    padding-right: 0;
+    padding-left: 10rem;
+    transition: all 350ms ease;
+
+    &.active {
+        padding-left: 17.2rem;
+    }
+
+    h1 {
+        font-weight: 100;
+    }
+
+    .main__logo {
+        padding: 2rem 2rem 2rem 3.75rem;
+
+        a {
+            display: block;
+            max-width: 9.375rem;
+        }
+    }
+
+    // main logo
+
+    .main__content {
+        width: 100%;
+        padding-right: 2rem;
+        padding-left: 2rem;
+        padding-top: 1rem;
+
+        &.main__content_full {
+            max-width: 100%;
+            padding: 0;
+        }
+    }
+
+    // main-content
+    .topic-tab {
+        margin: 1rem 0 2.5rem;
+    }
+
+    .tab__block_container {
+        margin-bottom: 1.25rem;
+        padding-left: 0;
+
+        &:last-of-type {
+            padding-right: 0;
+        }
+    }
+
+    // topic tab
+    .tab__block {
+        width: 100%;
+        padding: 1rem 2rem;
+        border: 1px solid #f5f5f5;
+        border-radius: 6px;
+        cursor:pointer;
+        background-color: #d9d9d9;
+        transition: all 350ms ease;
+
+        h1 {
+            margin-bottom: 1.5rem;
+            color: $placeholder-default;
+            transition: all 350ms ease;
+        }
+
+        ul {
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        .list-item {
+            color: $placeholder-default;
+
+            &:not(:last-child) {
+                margin-bottom: .85rem;
+            }
+
+            span {
+                min-width: 60px;
+            }
+
+            .task__name {
+                min-width: 160px;
+            }
+        }
+
+        .tab__block_content {
+            width: calc(100% - 100px);
+            padding-right: 2rem;
+            transition: all 350ms ease;
+        }
+
+        &:not(:last-of-type) {
+            margin-right: 60px;
+        }
+
+        &.active {
+            border-color: $pink;
+            background-color: $white;
+            box-shadow: 0px 0px 17px -6px #3e3e3e;
+
+            h1 {
+                font-weight: 500;
+                color: $darken-blue;
+            }
+
+            .progress {
+                .progress-bar {
+                    border-color: $pink;
+                }
+            }
+        }
+
+
+    }
+
+
+    // tab block
+
+    .tab__block_chart {
+        width: 100px;
+        margin-top: .65rem;
+
+    }
+
+
+    // progressive pie chart
+    $animationTime: .5s;
+    $border-color-default: #eaeaea;
+    $border-color-fill: #e4c3cd;
+    $size: 100px;
+    $howManySteps: 100;
+
+    .tab__block_chart {
+        .progress {
+            width: $size;
+            height: $size;
+            line-height: $size;
+            background: none;
+            margin: 0 auto;
+            box-shadow: none;
+            position: relative;
+
+            &:after {
+                content: "";
+                width: 100%;
+                height: 100%;
+                border-radius: 50%;
+                border: 3px solid $border-color-default;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            >span {
+                width: 50%;
+                height: 100%;
+                overflow: hidden;
+                position: absolute;
+                top: 0;
+                z-index: 1;
+            }
+
+            .progress-left {
+                left: 0;
+            }
+
+            .progress-bar {
+                width: 100%;
+                height: 100%;
+                background: none;
+                border-width: 3px;
+                border-style: solid;
+                position: absolute;
+                top: 0;
+                border-color: $border-color-fill;
+            }
+
+            .progress-left .progress-bar {
+                left: 100%;
+                border-top-right-radius: ($size/2);
+
+                border-bottom-right-radius: ($size/2);
+
+                border-left: 0;
+                -webkit-transform-origin: center left;
+                transform-origin: center left;
+                //animation: loading-2 1.5s linear forwards 1.8s;
+            }
+
+            .progress-right {
+                right: 0;
+
+                .progress-bar {
+                    left: -100%;
+                    border-top-left-radius: ($size/2);
+
+                    border-bottom-left-radius: ($size/2);
+
+                    border-right: 0;
+                    -webkit-transform-origin: center right;
+                    transform-origin: center right;
+                    //animation: loading-1 1.8s linear forwards;
+                }
+            }
+
+            .progress-value {
+                display: flex;
+                border-radius: 50%;
+                font-size: 1rem;
+                text-align: center;
+                line-height: 20px;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                width: 100%;
+                font-weight: 300;
+
+
+                span {
+                    font-size: 12px;
+                    text-transform: uppercase;
+                }
+            }
+        }
+
+        /* This for loop creates the necessary css animation names
+        Due to the split circle of progress-left and progress right, we must use the animations on each side.
+        */
+        @for $i from 1 through $howManySteps {
+            $stepName: ($i*(100 / $howManySteps));
+
+            //animation only the left side if below 50%
+            @if $i <=($howManySteps/2) {
+                .progress[data-percentage="#{$stepName}"] {
+                    .progress-right .progress-bar {
+                        animation: loading-#{$i} $animationTime linear forwards;
+                    }
+
+                    .progress-left .progress-bar {
+                        animation: 0;
+                    }
+                }
+            }
+
+            //animation only the right side if above 50%
+            @if $i>($howManySteps/2) {
+                .progress[data-percentage="#{$stepName}"] {
+                    .progress-right .progress-bar {
+                        animation: loading-#{($howManySteps/2)} $animationTime linear forwards; //set the animation to longest animation
+                    }
+
+                    .progress-left .progress-bar {
+                        animation: loading-#{$i - ($howManySteps/2)} $animationTime linear forwards $animationTime;
+                    }
+                }
+            }
+        }
+
+        //animation
+        @for $i from 1 through ($howManySteps/2) {
+            $degrees: (180/($howManySteps/2));
+            $degrees: ($degrees*$i);
+
+            @keyframes loading-#{$i} {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+
+                100% {
+                    -webkit-transform: rotate($degrees);
+                    transform: rotate(#{$degrees}deg);
+                }
+            }
+        }
+
+    }
+
+
+    // Dashboard Chart css ends
+
+    .tab-data {
+        .tab-data__heading {
+            margin-bottom: 1.25rem;
+            padding-left: 0;
+
+            h2 {
+                color: $darken-blue;
+                font-weight: 600;
+            }
+
+            p {
+                font-size: .9rem;
+                color: $light-blue;
+
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+
+            .tab-data__heading_right {
+                margin-left: 1.75rem;
+            }
+        }
+
+        .tab-data__slider {
+
+
+            .card {
+                border: none;
+                padding: .5rem;
+                background-color: #f5f5f5;
+
+                .card-body {
+                    padding: .5rem 0;
+
+                    h5 {
+                        width: calc(100% - 125px);
+                        font-size: 1.125rem;
+                        font-weight: 600;
+                        color: $dark-blue;
+                    }
+
+                    .progress {
+                        width: 125px;
+                        height: .5rem;
+                        background-color: #ccd2dd;
+
+                        .progress-bar {
+                            background-color: #56e2ba;
+                        }
+                    }
+                }
+            }
+
+            // card
+
+            .owl-dots {
+                display: none;
+            }
+
+            .owl-nav {
+                margin: 0;
+
+                .owl-prev,
+                .owl-next {
+                    position: absolute;
+                    top: 50%;
+                    margin: 0;
+                    transform: translateY(-50%);
+
+
+
+                    span {
+                        display: block;
+                        position: relative;
+                        width: 45px;
+                        height: 45px;
+                        border-radius: 50%;
+                        background-color: #F5F5F5;
+                        text-indent: -999px;
+                        overflow: hidden;
+
+                        background: {
+                            position: center;
+                            repeat: no-repeat;
+                        }
+                    }
+
+                    &:hover,
+                    &:focus {
+                        background-color: transparent;
+                        outline: none;
+                    }
+
+                }
+
+                .owl-prev {
+                    left: -17px;
+
+                    span {
+
+                        background-image: url('../../public/images/icon-owl-prev.svg');
+                    }
+                }
+
+                .owl-next {
+                    right: -17px;
+
+                    span {
+
+                        background-image: url('../../public/images/icon-owl-next.svg');
+                    }
+                }
+            }
+        }
+    }
+
+}
+
+
+
+/*=============================================
+=            Common             =
+=============================================*/
+.border-success {
+    border-color: #CCD89A !important;
+}
+
+.border-info {
+    border-color: #9AD5D8 !important;
+}
+
+.border-primary {
+    border-color: #9AAEDB !important;
+}
+
+/*=====  End of Common   ======*/
+
+
+
+@media screen and (max-width: 1399px) {
+    .main {
+        .tab__block {
+            height: 100%;
+        }
+
+        .tab-data {
+            .tab-data__slider {
+                .owl-nav {
+                    .owl-next {
+                        right: -17px;
+                    }
+                }
+            }
+        }
+
+        // main active effect
+
+        &.active {
+            .tab__block {
+                h1 {
+                    font-size: 2.25rem;
+                }
+
+                .tab__block_content {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .main {
+        .tab__block {
+            h1 {
+                font-size: 2.25rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .main {
+
+        .main__logo {
+            padding: 2rem 2.5rem;
+        }
+
+        .main__content {
+            padding: 2rem 2.5rem 3rem;
+        }
+
+        // main content
+
+        .tab__block {
+            padding: 2rem 1.25rem;
+
+            h1 {
+                font-size: 1.75rem;
+            }
+
+            .tab__block_content {
+                padding-right: 1rem;
+            }
+
+            .list-item {
+                .task__name {
+                    min-width: 145px;
+                }
+            }
+        }
+
+        // Tab block
+
+        .tab-data {
+            .tab-data__slider {
+                .owl-nav {
+                    .owl-next {
+                        right: -25px;
+                    }
+
+                    .owl-prev {
+                        left: -25px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .main {
+
+
+        // main content
+        .tab__block_container {
+            padding: 0;
+        }
+
+        .tab__block {
+            h1 {
+                font-size: 2rem;
+            }
+        }
+
+        // tab block
+
+        &.active {
+            .tab__block {
+                padding: 2rem;
+            }
+        }
+    }
+}

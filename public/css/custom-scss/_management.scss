@@ -1,0 +1,232 @@
+.main__content {
+    h3 {
+        margin-bottom: 1rem;
+
+        font: {
+            size: 1.125rem;
+            weight: 500;
+        }
+
+        color: $darken-blue;
+    }
+}
+
+.management-slider-top {
+    padding: 1.5rem 2.5rem;
+    background: #f5f5f5;
+
+    .management-slider_button {
+        width: 110px;
+        padding: 1rem .5rem;
+        border-radius: $border-radius-lg;
+
+        background: {
+            color: $white;
+        }
+
+        text-decoration: none;
+
+        .slider-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 40px;
+            margin-bottom: .5rem;
+
+            >img {
+                width: auto;
+                margin: 0 auto;
+            }
+        }
+
+        .slider-title {
+            width: 100%;
+            min-height: 30px;
+            font-size: .75rem;
+            color: $darken-blue;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+
+        &.active {
+            background: {
+                color: $pink;
+            }
+
+            .slider-title {
+                color: $white;
+            }
+
+        }
+
+    }
+
+    // slider buttons
+}
+
+.main-course {
+    .course-enrolement {
+        border: 1px solid $pink;
+        border-radius: $border-radius-lg;
+        padding: 4rem 3.5rem;
+
+        h2 {
+            margin-bottom: 5rem;
+            color: $darken-blue;
+
+            span {
+                display: block;
+            }
+        }
+
+        >ul {
+            margin-bottom: 3.5rem;
+        }
+
+        .list-item {
+            margin-bottom: 1rem;
+
+            font: {
+                size: 1.125rem;
+                weight: 500;
+            }
+
+            >span {
+                display: inline-flex;
+            }
+
+            .list-item__left {
+                width: 58%;
+                color: $light-blue;
+            }
+
+            .list-item__right {
+                width: 40%;
+                color: $darken-blue;
+            }
+        }
+
+
+        // bubbling
+        @media screen and (max-width: 1300px) {
+            padding: 3rem 2.5rem;
+        }
+    }
+}
+
+// main course
+.fee-detail {
+    margin-bottom: 2.5rem;
+
+    .fee-detail__box {
+        max-width: 465px;
+        border: 1px solid $pink;
+        border-radius: $border-radius-lg;
+        padding: 1.25rem;
+
+        h4 {
+            font: {
+                size: 1rem;
+            }
+
+            color: $light-blue;
+
+            strong {
+                display: block;
+
+                font: {
+                    size: 2rem;
+                }
+
+            }
+        }
+
+        .fee-detail__box_heading {
+            margin-bottom: 1.5rem;
+
+            h4 {
+                strong {
+                    color: $pink;
+                }
+            }
+        }
+
+        .progress {
+            height: 5px;
+            border-radius: 0;
+            margin-bottom: 2rem;
+            background-color: #E1E6E8;
+        }
+
+        .pending-fees {
+            position: relative;
+
+            &:not(:last-of-type) {
+                &::after {
+                    position: absolute;
+                    content: '';
+                    display: block;
+                    top: .5rem;
+                    right: 0;
+                    width: 1px;
+                    height: calc(100% - 1rem);
+                    background-color: #B6C5DF;
+                }
+            }
+
+            h4 {
+                &:last-of-type {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    @media screen and (max-width: 1199px) {
+        border-bottom: 1px solid #B6C5DF;
+        padding-bottom: 2.5rem;
+    }
+}
+
+// Fee detail
+
+.installment {
+
+    .table {
+
+        th,
+        tr,
+        td {
+            padding: 1.5rem .75rem;
+            border: none;
+            vertical-align: middle;
+        }
+
+        thead {
+            th {
+                color: $light-blue;
+            }
+        }
+
+        tbody {
+
+            th,
+            td {
+                font-size: .85rem;
+                font-weight: 500;
+                color: $darken-blue;
+            }
+        }
+    }
+
+    // table 
+
+    @media screen and (min-width: 1200px) {
+        border-left: 1px solid #B6C5DF;
+        padding-left: 3rem;
+
+
+    }
+}

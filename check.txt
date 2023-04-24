@@ -1,0 +1,12 @@
+autodeploye done
+ssh check2 
+ 
+update
+update directory 
+Latest changes
+
+Done
+test
+
+New changes with imperial
+hello

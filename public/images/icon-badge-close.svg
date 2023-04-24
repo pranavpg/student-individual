@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="8px" height="8px" viewBox="0 0 8 8" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-badge-close</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-17" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Porfoilio-assessments" transform="translate(-1581.000000, -90.000000)" fill="#2D3F4F">
+            <g id="Group-3189" transform="translate(1388.000000, 90.000000)">
+                <path d="M200.1152,6.1415 L197.7912,3.8175 L200.1162,1.4925 C200.3422,1.2665 200.3422,0.9005 200.1162,0.6745 C199.8902,0.4495 199.5242,0.4495 199.2992,0.6745 L196.9732,2.9995 L194.6482,0.6745 C194.4232,0.4495 194.0572,0.4495 193.8312,0.6745 C193.6062,0.9005 193.6062,1.2665 193.8312,1.4925 L196.1562,3.8175 L193.8322,6.1415 C193.6062,6.3675 193.6062,6.7335 193.8322,6.9585 C194.0572,7.1845 194.4232,7.1845 194.6482,6.9585 L196.9732,4.6345 L199.2992,6.9585 C199.5242,7.1845 199.8902,7.1845 200.1152,6.9585 C200.3422,6.7335 200.3422,6.3675 200.1152,6.1415" id="icon-badge-close"></path>
+            </g>
+        </g>
+    </g>
+</svg>

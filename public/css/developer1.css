@@ -1,0 +1,228 @@
+.two-click .btn:not(:last-child) {
+    max-width: calc(50% - 2rem);
+}
+
+.two-click .btn {
+    margin-bottom: 2rem;
+}
+
+.main-audio-record-div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.course-book .audio-element {
+    min-width: 320px;
+    margin-right: 90px;
+}
+
+.course-book .audio-element .audio-player {
+    margin-bottom: 0;
+}
+
+.main-audio-record-div .delete-icon-right {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.main-audio-record-div .delete-icon-left {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.main-audio-record-div .delete-icon .fa-trash:before {
+    color: #264B82;
+}
+
+
+.main-audio-record-div .record-icon {
+  margin-right: .5rem;
+}
+.course-book .plyr--audio .plyr__controls {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 320px;
+    max-height: 4rem;
+    padding: 16px;
+    border-radius: 6px;
+    background-color: #e9ecef;
+}
+
+.course-book .plyr__control svg {
+    fill: #fff;
+}
+
+.course-book .plyr__controls .plyr__controls__item.plyr__progress__container,
+.course-book .plyr__controls .plyr__controls__item.plyr__time {
+    width: 100%;
+    text-align: left;
+}
+.course-book .plyr__controls .plyr__controls__item:first-child {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    padding: 15px;
+    right: -75px;
+    background-color: #264B82;
+}
+.course-book .btn {
+    border: none;
+}
+
+
+.course-book .recordModalButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 100%;
+    background-color: #264B82;
+}
+
+
+.course-book .recordModalButton:hover {
+    width: 56px;
+    height: 56px;
+    margin-left: -4px;
+}
+
+
+.course-book .recordModalButton .fas{
+    color: #fff;
+}
+
+.course-book .table-container .table .form-control {
+    word-break: normal;
+}
+
+
+.new-audio-record-modal .modal-content{
+  width:750px;
+  height: 470px;
+  max-height:500px;
+}
+
+.new-audio-record-modal .audio__controls {
+  width:800px;
+  display: flex;
+  left:0px;
+}
+
+.new-audio-record-modal .mic__icon{
+  vertical-align: middle;
+  margin-top: 75px;
+  margin-bottom:70px;
+}
+
+.new-audio-record-modal .mic__icon img{
+  width:60px;
+  vertical-align: middle;
+  margin-top: 20px;
+  object-fit: contain;
+}
+.new-audio-record-modal .animated__mic__icon img{
+  width:450px;
+  object-fit: contain;
+
+}
+
+.new-audio-record-modal .loader__icon img{
+  width:500px;
+  object-fit: contain;
+}
+
+.new-audio-record-modal .close__modal{
+  right:0;
+  top:0;
+  margin-right: 20px;
+  margin-top:15px;
+  position: absolute;
+}
+
+.audio__controls {
+  margin-left:-50px;
+}
+
+.audio__controls .btn {
+  /* background-color: #264B82; */
+  border:1px solid #264B82;
+  color:#264B82;
+}
+
+.audio__controls .btn:hover,
+.audio__controls .btn.active {
+  background-color: #264B82;
+  color:#fff;
+}
+
+.new-audio-record-modal .erase-modal .modal-footer .btn:not(:last-child){
+  margin-left:25px;
+}
+
+.modal__question{
+  color: #264B82;
+  font-size: 16px;
+  font-weight: 800;
+}
+
+.loader__icon h5{
+   font-weight: 500;
+    color: #d55b7d;
+}
+
+.audio__progress{
+    height: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    margin:auto !important;
+
+    width:80%;
+    border-radius: 24px;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+}
+.audio__progress__bar {
+    float: left;
+    width: 0%;
+    height: 100%;
+    font-size: 12px;
+    line-height: 20px;
+    color: #fff;
+    text-align: center;
+    background-color: #337ab7;
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    -webkit-transition: width .6s ease;
+    -o-transition: width .6s ease;
+    transition: width .6s ease;
+}
+.audio__progress__success{
+
+   background-color:#d55b7d;
+}
+
+.audio__progress__remaining{
+  background-color: #264B82;
+}
+.course-book .audio-player.justify-content-end{
+  padding-right: 0px !important;
+  right:0 !important;
+}
+.justify-content-end {
+    -webkit-box-pack: end!important;
+    justify-content: flex-end!important;
+}
+
+p.role__play__title{
+  color: #d55b7d !important;
+  font-weight: bold !important;
+  font-size:18px !important;
+}

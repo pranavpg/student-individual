@@ -1,0 +1,1471 @@
+.bg-list-light-gray {
+    background-color: #F2F3F4;
+}
+
+.bg-list-navy {
+    background-color: #79E0C3;
+}
+
+.bg-list-pink {
+    background-color: #EF827D;
+}
+
+.bg-list-purple {
+    background-color: #CAAFD8;
+}
+
+.bg-list-light-yello {
+    background-color: #F7DFC5;
+}
+
+.bg-list-yellow {
+    background-color: #FCCF00;
+}
+
+.bg-list-light-green {
+    background-color: #CEE274;
+}
+
+.bg-list-light-danger {
+    background-color: #F8AE72;
+}
+
+.bg-list-light-pink {
+    background-color: #FABAB8;
+}
+
+.bg-list-light-blue {
+    background-color: #AADFE6;
+}
+
+.bg-opinion {
+    background-color: #FFF4BB;
+}
+
+.text-pink {
+    color: $pink !important;
+}
+
+.match-option-color-one{
+  background-color:#E6B0AA;
+}
+.match-option-color-two{
+  background-color:#D7BDE2;
+}
+
+ .match-option-color-three{
+   background-color: #A9CCE3;
+ }
+ .match-option-color-four{
+   background-color: #A3E4D7;
+ }
+ .match-option-color-five{
+   background-color: #F9E79F;
+ }
+ .match-option-color-six{
+   background-color: #D5DBDB;
+ }
+ .match-option-color-seven{
+   background-color: #80DEEA;
+ }
+ .match-option-color-eight{
+   background-color: #F06292;
+ }
+ .match-option-color-nine{
+   background-color: #56b173;
+ }
+ .match-option-color-ten{
+   background-color: #f2966e;
+ }
+ .match-option-color-eleven{
+   background-color: #ad9076;
+ }
+ .match-option-color-twelve{
+   background-color: #FEF9E7;
+ }
+ .match-option-color-thirteen{
+   background-color: #FDEDEC;
+ }
+ .match-option-color-fourteen{
+   background-color: #FCE4EC;
+ }
+ .match-option-color-fifteen{
+   background-color: #D2B48C;
+ }
+ .match-option-color-sixteen{
+   background-color: #ffb3ff;
+ }
+ .match-option-color-seventeen{
+   background-color: #cce6ff;
+ }
+ .match-option-color-eighteen{
+   background-color: #b3ffd9;
+ }
+ .match-option-color-nineteen{
+   background-color: #b3b3ff;
+ }
+ .match-option-color-twenty{
+   background-color: #ecffb3;
+ }
+
+
+
+/*=============================================
+=            Match Answer            =
+=============================================*/
+.course-book {
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    ul,
+    p,
+    a {
+        font-family: 'myriad-pro', sans-serif;
+    }
+
+    .match-answer {
+        ul {
+            li {
+                font: {
+                    size: 1rem;
+                }
+
+                &:last-child {
+                    margin: 0 auto 1.45rem;
+                }
+            }
+        }
+    }
+
+    .simple-list {
+        ul {
+            li {
+                margin-bottom: .9rem;
+
+                font: {
+                    size: 1rem;
+                }
+            }
+        }
+    }
+
+
+    .true-flase-radio {
+        p {
+            margin-bottom: 1.25rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    // Table
+    .table-container {
+        .table {
+            .table-heading {
+                .table-split {
+                    .split-box {
+                        padding: {
+                            top: .75rem;
+                            bottom: .75rem;
+                        }
+                    }
+                }
+            }
+
+            &.table-can {
+                .custom-control {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    // list bold
+    ul {
+        &.list-bold {
+            li {
+                margin-bottom: 0;
+
+                font: {
+                    weight: 700;
+                }
+            }
+        }
+    }
+}
+
+.match-answer {
+    h3 {
+        margin-bottom: 1.25rem;
+
+        font: {
+            size: 1rem;
+            weight: 600;
+        }
+
+        text-align: center;
+        color: #3E5971;
+    }
+
+    .match-answer__block {
+        li {
+            width: calc(45% - 60px);
+            flex: 0 0 calc(45% - 60px);
+            border-radius: $border-radius-lg * 1.25;
+            margin: 0 auto 1rem;
+            padding: .65rem .5rem;
+
+            font: {
+                size: 1rem;
+            }
+
+            text-align: center;
+
+            &:last-child {
+                margin: 0 auto 1rem;
+            }
+        }
+    }
+
+}
+
+/*=====  End of Match Answer  ======*/
+
+
+
+/*=============================================
+=            Text Underline with Background            =
+=============================================*/
+
+.text-with-bg {
+    h2 {
+        font: {
+            size: 1.5rem;
+            weight: 600;
+        }
+
+        color: #3E5971;
+    }
+}
+
+/*=====  End of Text Underline with Background  ======*/
+
+
+
+/*=============================================
+=            Draw Image            =
+=============================================*/
+
+.draw-image {
+    min-height: 350px;
+    border: .2rem solid $pink;
+    border-radius: $border-radius-lg * 4;
+    background-color: #F8FBFE;
+
+    &.draw-image__small {
+        min-height: 7.5rem;
+    }
+}
+
+.colorpicker {
+    z-index: 9999;
+}
+
+.fs-container {
+    .literally {
+        min-height: 400px;
+
+
+        .toolbar {
+            border-radius: $border-radius-lg * 1.125;
+            padding: .5rem 1rem;
+        }
+
+        .toolbar-row {
+            display: flex;
+            flex-flow: row wrap;
+
+            .toolbar-row-right {
+                width: auto;
+                margin-left: auto;
+            }
+        }
+
+        .zoom-display {
+            width: auto;
+        }
+
+        .button.color-square {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    &.fs-container-with-border {
+        border: 2px solid $pink;
+        border-radius: $border-radius-lg * 2;
+        overflow: hidden;
+    }
+}
+
+/*=====  End of Draw Image  ======*/
+
+
+
+
+/*=============================================
+=   Multiple choice box with half input     =
+=============================================*/
+.multiple-choice {
+    .form-group__custom {
+        span {
+            color: $darken-blue;
+
+            &:not(.form-control) {
+                position: relative;
+                top: .45rem;
+            }
+        }
+
+    }
+
+    .choice-box-left {
+        p {
+            margin-bottom: 0;
+        }
+    }
+
+    &.multiple-choice__custom {
+
+        h6 {
+            font-weight: 600;
+            color: $darken-blue;
+        }
+
+        .form-group__custom {
+            span {
+                &:not(.form-control) {
+                    position: relative;
+                    top: 0;
+                }
+            }
+
+        }
+    }
+
+    .text-with-short-input {
+        .form-control-textarea {
+            width: auto;
+            min-width: 80px;
+            border-radius: 0;
+        }
+    }
+
+    &.multiple-choice_withoutBefore {
+        .choice-box {
+            padding-left: 0;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    // Simple list
+    .simple-list {
+        .list-item {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+    }
+}
+
+
+
+/*=====  End of Multiple choice box with half input  ======*/
+
+
+/*=============================================
+=   True False Radio     =
+=============================================*/
+
+
+.true-flase-radio {
+
+    counter-reset: section;
+
+    .box {
+        position: relative;
+        border: 1px solid $dark-blue;
+        border-radius: $border-radius-lg * 2;
+        margin-bottom: 1.5rem;
+        padding: 1.25rem 2rem 1.25rem 4rem;
+        background-color: #F8FBFE;
+
+
+        &::before {
+            position: absolute;
+            counter-increment: section;
+            content: counter(section)")";
+            font-size: 1rem;
+            font-weight: 600;
+            color: $darken-blue;
+            top: 1.5rem;
+            left: 1.5rem;
+        }
+
+        .box-flex {
+            margin-bottom: 1.125rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+        }
+
+        .box__left {
+            width: calc(100% - 25px);
+            padding-right: 1rem;
+        }
+
+        .true-false_buttons {
+            width: 25px;
+        }
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    .form-check-input {
+        -webkit-appearance: none;
+        -ms-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        +.form-check-label {
+            position: relative;
+            top: -2px;
+            width: 22px;
+            height: 22px;
+            border: 2px solid $pink;
+            border-radius: 50%;
+            background-color: $white;
+        }
+
+        &:checked {
+            ~.form-check-label {
+                background-color: $pink;
+            }
+        }
+    }
+
+}
+
+
+.true-false {
+    &.true-false_withoutBefore {
+        h6 {
+            margin-bottom: .5rem;
+
+            font: {
+                weight: 700;
+            }
+
+            color: $darken-blue
+        }
+
+        .box {
+            padding-left: 0;
+
+            &::before {
+                display: none;
+            }
+        }
+    }
+
+    &.true-false__check {
+        .box {
+            padding-left: 0;
+
+            &::before {
+                display: none;
+            }
+
+            .box__left {
+                max-width: calc(100% - 36px);
+            }
+        }
+    }
+}
+
+/*=====  End of Multiple choice box with half input  ======*/
+
+
+/*=============================================
+=            Conversation            =
+=============================================*/
+.conversation {
+    .convrersation-box {
+        max-width: 600px;
+        border-radius: $border-radius-lg * 2.5;
+        padding: .5rem 1rem .65rem;
+        background: #F2F3F4;
+
+        p {
+            font-size: 1rem;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+
+            .mw-20 {
+                height: 30px;
+                background-color: transparent;
+            }
+        }
+
+        &.convrersation-box__dark {
+            background-color: #083863;
+
+            p {
+                color: $white;
+
+                .mw-20 {
+                    border-color: $white;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+
+/*=====  End of Conversation  ======*/
+
+
+/*=============================================
+=            Table            =
+=============================================*/
+.course-book {
+    .table-container {
+        .table {
+            .table-row {
+                &:last-of-type {
+                    .td {
+                        &:first-child {
+                            border-bottom-left-radius: $border-radius-lg * 3;
+
+                            .form-control {
+
+                                border-bottom-left-radius: $border-radius-lg * 3;
+                            }
+                        }
+
+                        &:last-child {
+                            border-bottom-right-radius: $border-radius-lg * 3;
+
+                            .form-control {
+                                border-bottom-right-radius: $border-radius-lg * 3;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+/*=====  End of Table  ======*/
+
+
+/*=============================================
+=            draw-image            =
+=============================================*/
+.draw-image {
+    >a {
+        position: relative;
+
+        font: {
+            size: 1.25rem;
+        }
+
+        color: $darkest-blue;
+        text-decoration: none;
+
+        &::before {
+            position: absolute;
+            content: '';
+            display: block;
+            width: 100%;
+            height: 2px;
+            bottom: -2px;
+            background-color: $darken-blue;
+        }
+    }
+}
+
+
+/*=====  End of draw-image  ======*/
+
+
+
+/*=============================================
+=            Component Misc            =
+=============================================*/
+.component-misc {
+    .btn-dark {
+        background-color: #264B82;
+
+        &:hover,
+        &:focus {
+            background-color: #1d3963;
+        }
+    }
+}
+
+.mw-20 {
+    min-width: 50px;
+    border-radius: 0 !important;
+
+    &.textarea {
+        width: auto;
+        height: auto;
+        vertical-align: bottom;
+    }
+}
+
+
+/*=====  End of Component Misc  ======*/
+
+
+/*=============================================
+=            Record Video            =
+=============================================*/
+
+.record-video {
+    border: 3px solid #083863;
+    border-radius: $border-radius-lg * 8;
+    padding: .5rem 2rem 1.25rem 4.5rem;
+
+    font: {
+        size: 1.125rem;
+    }
+
+    color: #083863;
+
+    background: {
+        image: url('../../public/images/icon-web-glob.svg');
+        position: 1rem center;
+        repeat: no-repeat;
+        color: #F8FBFE;
+    }
+
+    strong {
+        padding-bottom: 7px;
+    }
+
+    .form-control {
+        background-color: transparent;
+
+        font: {
+            size: 1.125rem;
+            weight: 600;
+        }
+
+        color: #083863;
+    }
+}
+
+/*=====  End of Record Video  ======*/
+
+
+/*=============================================
+=      True false radio deisgn like checkbox  =
+=============================================*/
+
+.true-false_buttons-aes {
+    .form-check-inline {
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    .form-check-input {
+        margin: 0;
+        -webkit-appearance: none;
+        -ms-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+
+        &:checked {
+            ~.form-check-label {
+                &::before {
+                    color: $white;
+                    border-color: $pink;
+
+                    background: {
+                        image: url('../../public/images/icon-custom-check.svg');
+                        color: $pink;
+                        position: center;
+                        repeat: no-repeat;
+                        size: 16px;
+                    }
+                }
+            }
+        }
+    }
+
+    .form-check-label {
+        position: relative;
+        padding-left: 2.5rem;
+        color: $darken-blue;
+        cursor: pointer;
+
+
+        &::before {
+            position: absolute;
+            content: '';
+            width: 28px;
+            height: 28px;
+            top: 0;
+            left: 0;
+            border: 2px solid $darken-blue;
+            border-radius: $border-radius-lg * 1.25;
+        }
+
+        &:hover,
+        &:focus {
+            &::before {
+                color: $white;
+                border-color: #98A3AF;
+                background-color: #98A3AF;
+            }
+        }
+
+        &.form-check-label_center {
+            &::before {
+                top: 50%;
+                transform: translateY(-50%);
+            }
+
+            .img-checkbox {
+                border: 2px solid $pink;
+                border-radius: $border-radius-lg * 3;
+            }
+        }
+    }
+
+    &.true-false_buttons_radio {
+
+        .form-check-inline {
+            &:not(:last-child) {
+                margin-right: 2.75rem;
+            }
+        }
+
+        .form-check-label {
+            width: 2.25rem;
+            min-width: 1px;
+            height: 2.25rem;
+
+            background: {
+                color: #E8ECF1;
+                position: center;
+                size: 20px;
+                repeat: no-repeat;
+            }
+
+            &.form-check-label_true {
+                background: {
+                    image: url('../../public/images/icon-custom-check-green.svg');
+                }
+
+                &:hover {
+                    background: {
+                        image: url('../../public/images/icon-custom-check.svg');
+                        color: #98A3AF;
+                    }
+                }
+            }
+
+            &.form-check-label_false {
+                background: {
+                    image: url('../../public/images/icon-custom-close-red.svg');
+                    size: 18px;
+                }
+
+                &:hover {
+                    background: {
+                        image: url('../../public/images/icon-custom-close.svg');
+                        color: #98A3AF;
+                    }
+                }
+            }
+        }
+
+        // checked
+        .form-check-input {
+            &:checked {
+                ~.form-check-label {
+                    &.form-check-label_true {
+                        background: {
+                            image: url('../../public/images/icon-custom-check.svg');
+                            color: #33BC77;
+                        }
+
+                    }
+
+                    &.form-check-label_false {
+                        background: {
+                            image: url('../../public/images/icon-custom-close.svg');
+                            color: #E22735;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*=====  End of True false radio deisgn like checkbox  ======*/
+
+
+/*=============================================
+=            Custom checkbox            =
+=============================================*/
+.custom-checkbox_single {
+    padding-left: 0;
+
+    .custom-control-input {
+        &:focus {
+            ~.custom-control-label {
+
+                &::after,
+                &::before {
+                    box-shadow: none;
+                    outline: none;
+                }
+            }
+        }
+
+        &:checked {
+            ~.custom-control-label {
+                &::after {
+                    border-color: $pink;
+
+                    background: {
+                        image: url('../../public/images/icon-custom-check.svg');
+                        position: center;
+                        repeat: no-repeat;
+                        size: 16px;
+                    }
+
+                    z-index: 2;
+                    box-shadow: none;
+                    outline: none;
+                }
+
+            }
+        }
+    }
+
+    .custom-control-label {
+        padding-left: 2.25rem;
+
+        &::before,
+        &::after {
+            width: 28px;
+            height: 28px;
+            top: -3px;
+            left: 0;
+            border: 1px solid $placeholder-default;
+            border-radius: $border-radius-lg * 1.125;
+            box-shadow: none;
+            outline: none;
+        }
+
+    }
+
+    &.custom-checkbox_single_dark {
+
+        .custom-control-label {
+            &::before {
+                border-color: #D2DBE3;
+                background-color: #D2DBE3;
+            }
+        }
+    }
+
+    &.custom-checkbox_correct {
+        .custom-control-input {
+            &:checked {
+                ~.custom-control-label {
+                    &::after {
+                        border-color: #33BC77;
+
+                        background: {
+                            color: #33BC77
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+
+    &.custom-checkbox_incorrect {
+        .custom-control-input {
+            &:checked {
+                ~.custom-control-label {
+                    &::after {
+                        border-color: #E22735;
+
+                        background: {
+                            image: url('../../public/images/icon-custom-close.svg');
+                            color: #E22735
+                        }
+                    }
+
+                }
+            }
+        }
+    }
+}
+
+
+/*=====  End of Custom checkbox  ======*/
+
+
+
+/*=============================================
+=            Two click             =
+=============================================*/
+
+.two-click {
+    .btn {
+        min-width: 200px;
+        border-radius: $border-radius-lg * 5;
+
+        background: {
+            position: 10px center;
+            repeat: no-repeat;
+            size: 25px;
+        }
+
+        font: {
+            size: 1.25rem;
+        }
+
+        &:not(:last-child) {
+            margin-right: 2rem;
+        }
+
+        &.btn-bg {
+            padding-left: 2.5rem;
+
+            background: {
+                image: url('../../public/images/left-arrow.svg');
+            }
+        }
+    }
+}
+
+/*=====  End of Two click   ======*/
+
+
+
+/*=============================================
+=            Table Slider            =
+=============================================*/
+
+.form-slider {
+    .table-slider-box {
+        width: 85%;
+        margin: 0 auto;
+    }
+
+    .table-option {
+        a {
+            display: block;
+            color: $darken-blue;
+            padding: .5rem 1rem;
+            text-decoration: none;
+
+            &:hover,
+            &:focus {
+                background-color: #D2DBE3;
+            }
+        }
+    }
+}
+
+/*=====  End of Table Slider  ======*/
+
+
+
+/*=============================================
+=            Quiz Box            =
+=============================================*/
+.create-quiz {
+    position: relative;
+    border-radius: $border-radius-lg * 4;
+    margin-bottom: 4.25rem;
+    padding: 1rem;
+    background-color: #F2F3F4;
+
+    .quiz-question {
+        width: 125px;
+
+        font: {
+            size: 1.5rem
+        }
+
+        color: #024A76;
+    }
+
+    .quiz-question__form-control {
+        width: calc(100% - 125px);
+        border-radius: $border-radius-lg * 2;
+        padding: .125rem .5rem .5rem;
+        background-color: $white;
+    }
+
+    .quiz__answer {
+        height: 0;
+        overflow: hidden;
+        transition: all 350ms ease;
+
+        .quiz-question__form-control {
+            border-radius: none;
+            padding: 0;
+            background-color: transparent;
+
+            .list-inline-item {
+                border-radius: $border-radius-lg * 2;
+                margin-bottom: 0;
+                padding: .25rem 1rem;
+                background-color: $white;
+
+                a {
+                    display: block;
+                    color: #024A76;
+
+                    font: {
+                        size: 1.5rem;
+                    }
+
+                    text-decoration: none;
+
+                }
+
+
+                &.active {
+                    background-color: #F5D8E0;
+                }
+            }
+        }
+
+        &.show {
+            padding-top: 1.5rem;
+            height: auto;
+            overflow: visible;
+        }
+    }
+
+    .show-hide-button {
+        position: absolute;
+        min-height: 41px;
+        top: 100%;
+        left: 50%;
+        border-radius: 0 0 $border-radius-lg $border-radius-lg;
+        background-color: $pink;
+        transform: translateX(-50%);
+
+        .show-answer {
+            display: block;
+            border-radius: $border-radius-lg;
+            padding: .25rem 2rem .4rem;
+
+            font: {
+                size: 1.25rem
+            }
+
+            color: $white;
+            text-decoration: none;
+        }
+    }
+}
+
+/*=====  End of Quiz Box  ======*/
+
+
+
+/*=============================================
+=            Multiple Draw            =
+=============================================*/
+
+.multiple-draw {
+    .draw-heading {
+        border: 1px solid $pink;
+        border-radius: $border-radius-lg * 2.5;
+        margin-bottom: 1.5rem;
+        padding: .75rem 1rem;
+        background-color: #F2F3F4;
+
+        h3 {
+            font-size: 1rem;
+            color: $dark-blue;
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .draw-image {
+        min-height: 260px;
+        padding-bottom: 2.5rem;
+
+        a {
+            font-size: .875rem;
+        }
+    }
+}
+
+/*=====  End of Multiple Draw  ======*/
+
+
+/*=============================================
+=            Drag and Drop            =
+=============================================*/
+
+.drag-drop {
+    .ui-widget-header {
+        border: 2px solid $pink;
+        border-radius: $border-radius-lg * 4;
+
+        img {
+            border-radius: $border-radius-lg * 4;
+        }
+    }
+
+    .gallery {
+        li {
+            border: none;
+
+            a {
+                width: auto;
+                height: auto;
+                border: 1px solid $pink;
+                border-radius: $border-radius-lg * 1.25;
+                margin: 0;
+                padding: .5rem 1rem;
+                font-size: 1rem;
+                text-indent: 0;
+                color: $darken-blue;
+                background: none;
+                box-shadow: none;
+
+                &:hover,
+                &:focus {
+                    color: $darken-blue;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+/*=====  End of Drag and Drop  ======*/
+
+
+/*=============================================
+=            Image Writting Box            =
+=============================================*/
+.image-box__writting {
+    .picture {
+        display: block;
+        max-width: 225px;
+        border: 3px solid $pink;
+        border-radius: $border-radius-lg * 2;
+    }
+
+    .form-group {
+        max-width: 225px;
+    }
+}
+
+.picture-with-border {
+    border: 2px solid $pink;
+    border-radius: $border-radius-lg * 3;
+    overflow: hidden;
+}
+
+/*=====  End of Image Writting Box  ======*/
+
+
+/*=============================================
+=            Show Hide Answer            =
+=============================================*/
+.true-false {
+    .box {
+        &.box-flex {
+            .box__left {
+                .box__left__hiddenContent {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+.count-box {
+    border-radius: $border-radius-lg * 3;
+}
+
+/*=====  End of Show Hide Answer  ======*/
+
+
+/*=============================================
+=            Pick color            =
+=============================================*/
+.pickcolor__heading {
+    p {
+        span {
+            width: 80px;
+            height: 30px;
+            border-radius: $border-radius-lg * 1.5;
+
+            &.bg-success {
+                background-color: #A9FFD4 !important;
+            }
+
+            &.bg-opinion {
+                background-color: #FFF4BB;
+            }
+        }
+    }
+}
+
+
+/*=====  End of Pick color  ======*/
+
+
+/*=============================================
+=            Speaking box            =
+=============================================*/
+.speaking-box {
+
+    p {
+        &:last-child() {
+            margin-bottom: 0;
+        }
+    }
+
+    &:first-child {
+        border-top-left-radius: $border-radius-lg *2;
+        border-bottom-left-radius: $border-radius-lg *2;
+    }
+
+    &:last-child {
+        border-top-right-radius: $border-radius-lg *2;
+        border-bottom-right-radius: $border-radius-lg *2;
+    }
+}
+
+
+/*=====  End of Speaking box  ======*/
+
+
+/*=============================================
+=            Set Sequence            =
+=============================================*/
+
+.set_sequence {
+    .list-inline-item {
+
+        &:not(:last-child) {
+            margin-right: 1.25rem;
+        }
+
+        .sequence__number {
+            display: block;
+            margin-bottom: .75rem;
+
+            font: {
+                size: 1.25rem;
+                weight: 700;
+            }
+
+            color: $pink;
+        }
+
+        a {
+            display: block;
+            min-height: 47px;
+            border: 2px solid $darken-blue;
+            border-radius: $border-radius-lg * 3.5;
+            padding: .5rem 1.25rem;
+            font-weight: 500;
+            color: $darken-blue;
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+            }
+        }
+    }
+
+    .sequence-box {
+        border: 2px solid $darken-blue;
+        border-radius: $border-radius-lg * 3.5;
+        padding: .75rem 1.25rem 1.75rem;
+        background-color: #F8FBFE;
+
+        .list-inline {
+            .list-inline-item {
+                margin-bottom: 0 !important;
+
+                a {
+                    border-color: $pink;
+                }
+            }
+        }
+    }
+}
+
+/*=====  End of Set Sequence  ======*/
+
+
+/*=============================================
+=            Chat Box            =
+=============================================*/
+.chat-conversation {
+    border: 2px solid $pink;
+    border-radius: $border-radius-lg * 3;
+    padding: 1rem 2rem;
+    background-color: #F8FBFE;
+
+    h3 {
+        margin-bottom: 1.5rem;
+
+        font: {
+            size: 1.25rem;
+            weight: 600;
+        }
+
+        color: $darken-blue;
+        text-align: center;
+    }
+
+    .user__icon {
+        width: 100px;
+        margin-right: 1rem;
+
+        @media screen and (max-width: 1400px) {
+            width: 70px;
+        }
+    }
+
+    .user__chat_box {
+        width: calc(100% - 100px - 1rem);
+        max-width: 270px;
+        border: 2px solid $pink;
+        border-radius: $border-radius-lg * 2;
+        padding: 1.25rem 1.5rem;
+        background-color: $white;
+
+        @media screen and (max-width: 1400px) {
+            width: 100%;
+            max-width: calc(100% - 70px - 1rem);
+        }
+
+        p {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .chat-right {
+        .user__icon {
+            margin-left: 1rem;
+            margin-right: 0;
+        }
+    }
+}
+
+
+/*=====  End of Chat Box  ======*/
+
+
+/*=============================================
+=            Section comment block            =
+=============================================*/
+.deoModal {
+    .modal-header {
+        border: none;
+        text-align: center;
+
+        .modal-title {
+            width: 100%;
+            color: $pink;
+        }
+    }
+
+    .modal-body {
+        padding: 0 2rem;
+        text-align: center;
+        border: none;
+
+        p {
+            color: $darken-blue;
+        }
+    }
+
+    .modal-footer {
+        border: none;
+
+    }
+
+}
+
+/*=====  End of Section comment block  ======*/
+
+
+/*=============================================
+=            126_multi_image            =
+=============================================*/
+.multi__image {
+    padding-bottom: 1.5rem;
+
+    border-bottom: .5rem solid $pink;
+
+    &:last-child,
+    &:last-of-type {
+        border: none;
+        padding-bottom: 0;
+    }
+}
+
+.multi-description {
+    .form-group {
+
+        .label,
+        .form-control {
+            font-size: 1rem;
+        }
+    }
+}
+
+
+/*=====  End of 126_multi_image  ======*/

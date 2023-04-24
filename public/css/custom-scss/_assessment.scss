@@ -1,0 +1,155 @@
+.main__content {
+    h2 {
+        color: $darken-blue;
+
+        span {
+            display: block;
+        }
+    }
+}
+
+// main content
+.assessment {
+    margin-bottom: 3rem;
+
+    h2 {
+        margin-bottom: 4.5rem;
+    }
+
+    h4 {
+        font: {
+            size: 1.125rem;
+            weight: 600;
+        }
+    }
+
+    p {
+        margin-bottom: 3rem;
+
+        font: {
+            size: 1.1rem;
+        }
+
+    }
+
+    .assessment__block {
+        position: relative;
+        padding-left: 3rem;
+        margin-bottom: 1.25rem;
+
+        h4,
+        p {
+            color: #E7EBED;
+        }
+
+
+        li {
+            margin-bottom: 1.25rem;
+            color: $light-blue;
+
+            font: {
+                size: 1.125rem;
+            }
+
+            >span,
+            >strong {
+                width: 50%;
+            }
+
+            strong {
+                font-weight: 500;
+                color: #3E5971;
+            }
+        }
+
+
+        &::before {
+            position: absolute;
+            content: '';
+            display: block;
+            top: 0;
+            left: 0;
+            width: 21px;
+            height: 21px;
+            border-radius: 100%;
+            background-color: #E1E6E8;
+        }
+
+        &.active {
+            margin-bottom: 2.5rem;
+
+            h4 {
+                color: $darken-blue;
+            }
+
+            p {
+                color: #8992A7;
+            }
+
+            &::before {
+                background-color: $darken-blue;
+            }
+        }
+
+        &.done {
+            h4 {
+                color: #41CCA3;
+            }
+
+            &::before {
+                background: {
+                    image: url('../../public/images/icon-done-white.svg');
+                    position: center;
+                    repeat: no-repeat;
+                    color: #41CCA3;
+                }
+            }
+        }
+    }
+
+
+    .assessment__block_result {
+        margin-top: 1.25rem;
+        margin-bottom: 2rem;
+
+        .icon {
+            width: 5rem;
+        }
+
+        h5 {
+            width: calc(100% - 5rem);
+
+            font: {
+                size: 1.125rem;
+            }
+
+            color: $pink;
+
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+
+// assessment
+
+.verticle-line {
+    position: relative;
+
+    &::before {
+        position: absolute;
+        content: '';
+        width: 1px;
+        height: 100%;
+        top: 0;
+        left: 50%;
+        background-color: $darken-blue;
+        opacity: .25;
+    }
+}

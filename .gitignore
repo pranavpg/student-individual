@@ -1,0 +1,7 @@
+
+*.lock
+*.md
+*.json
+*.htaccess
+*.env
+/vendor

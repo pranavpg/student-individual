@@ -1,0 +1,88 @@
+/***** lage devices for col-xl-number ***********/
+
+
+/***** lage devices for col-lg-number ***********/
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .chat-conversation .user__chat_box {
+        width: 100%;
+        max-width: calc(100% - 0px - 1rem);
+    }
+}
+
+
+/*---only for tablet--*/
+
+
+/***** Medium device view for col-md-number ***********/
+
+@media (max-width: 991px) {
+    /*==menu==*/
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .review-modal .modal-content {
+        /*padding: 0 1rem;*/
+        height: auto;
+        width: 100%;
+    }
+}
+
+
+/***** small view for col-sm-number  ***********/
+
+@media (max-width: 767px),
+only screen and (device-width: 375px) and (device-height: 812px) and (orientation: landscape) and (-webkit-device-pixel-ratio: 3) {
+    .chat-conversation .user__chat_box {
+        width: 50%;
+        max-width: calc(100% - 0px - 1rem);
+        padding: 0.5rem 0.5em;
+    }
+    .chat-conversation {
+        padding: 1rem 1rem;
+    }
+    .chat-conversation .user__icon {
+        width: 50px;
+    }
+    .col-12.col-lg-6.chat.chat-left.d-flex.flex-wrap.align-items-center {
+        margin: 15px 0;
+    }
+    .col-12.col-lg-6.chat.chat-right.d-flex.flex-wrap.align-items-center.justify-content-end {
+        margin: 15px 0;
+    }
+    .review-modal .modal-content {
+        /*padding: 0 1rem;*/
+        height: auto;
+        width: 100%;
+    }
+    .course-book.fullscreen .course-tab .course-tab-content {
+        /*padding: 3.8rem 1rem 1rem;*/
+        padding: 0rem 1rem 1rem;
+    }
+    .course-book.fullscreen .course-tab .course-tab-fixed-heading {
+        padding: 0.5rem;
+    }
+    .custom-control.custom-checkbox.w-25 {
+        width: 100% !important;
+        margin-bottom: 1rem;
+    }
+}
+
+
+/***** Extra small view for col-number ***********/
+
+@media (max-width: 575px) {
+    .course-book .plyr--audio .plyr__controls {
+        max-width: 178px;
+    }
+    a.btn.btn-no-border.btn-primary.mr-3.submit_step,
+    a.btn.btn-secondary.skip-review {
+        width: 100%;
+        float: left;
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+
+/*# sourceMappingURL=responsive2.css.map */

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="51px" height="51px" viewBox="0 0 51 51" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>Fill 159</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="3.199936e-06%" y1="50.0001924%" x2="99.9980032%" y2="50.0001924%" id="linearGradient-1">
+            <stop stop-color="#FFB110" offset="0%"></stop>
+            <stop stop-color="#F48E42" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dashboard-Profile-Management" transform="translate(-61.000000, -171.000000)" fill="url(#linearGradient-1)">
+            <g id="Group-161" transform="translate(61.000000, 171.000000)">
+                <path d="M5.208,0.561 C2.407,0.561 0.136,2.832 0.136,5.633 L0.136,45.49 C0.136,48.291 2.407,50.561 5.208,50.561 L45.064,50.561 C47.865,50.561 50.137,48.291 50.137,45.49 L50.137,5.633 C50.137,2.832 47.865,0.561 45.064,0.561 L5.208,0.561 Z" id="Fill-159"></path>
+            </g>
+        </g>
+    </g>
+</svg>

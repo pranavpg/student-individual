@@ -1,0 +1,546 @@
+body {
+    font: {
+        family: 'Roboto', sans-serif;
+    }
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font: {
+        family: 'Roboto', sans-serif;
+    }
+}
+
+
+/*=============================================
+=            Material Form Common            =
+=============================================*/
+
+.form-group {
+    position: relative;
+    margin-bottom: 2rem;
+    // form label
+    label {
+        position: absolute;
+        max-width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        top: 0;
+        left: 0;
+        font-weight: 300;
+        color: $placeholder-default;
+        -webkit-transition: color .2s ease-out, -webkit-transform .2s ease-out;
+        transition: color .2s ease-out, -webkit-transform .2s ease-out;
+        transition: transform .2s ease-out, color .2s ease-out;
+        transition: transform .2s ease-out, color .2s ease-out, -webkit-transform .2s ease-out;
+        -webkit-transform: translateY(.5rem);
+        transform: translateY(.5rem);
+        -webkit-transform-origin: 0% 100%;
+        transform-origin: 0% 100%;
+    }
+    // Focus
+    &.focus {
+        label {
+            top: 0;
+            -webkit-transform: translateY(-.85rem);
+            transform: translateY(-.85rem);
+            color: $pink;
+            font-size: .75rem;
+        }
+    }
+    // Form Icon
+    .form-icon {
+        position: absolute;
+        right: .35rem;
+        top: .4rem;
+    }
+}
+
+.form-control {
+    border: none;
+    border-bottom: 2px solid $underline;
+    border-radius: 0;
+    padding-left: 0;
+    box-shadow: none;
+    &:focus {
+        box-shadow: none;
+        border-bottom-color: $pink;
+    }
+    // is invalid
+    &.is-invalid {
+        padding-right: calc(3em + 0.75rem);
+        background-image: none;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    // Placeholder
+    &::-webkit-input-placeholder {
+        color: #A9B6C8;
+    }
+    &::-moz-placeholder {
+        color: #A9B6C8;
+    }
+    &:-ms-input-placeholder {
+        color: #A9B6C8;
+    }
+    &:-moz-placeholder {
+        color: #A9B6C8;
+    }
+}
+
+select {
+    &.form-control {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: {
+            image: url('../../public/images/icon-select-dropdown.svg');
+            position: calc(100% - 5px) center;
+            repeat: no-repeat;
+            size: 11px auto;
+        }
+    }
+}
+
+.b_1 {
+    border: 1.5px solid grey;
+    border-radius: 5px;
+    resize: vertical !important;
+    &:focus {
+        border: 1.5px solid black;
+    }
+}
+
+.invalid-feedback {
+    font-size: 80%;
+}
+
+.form-group__mnumber {
+    .form-group__countrycode {
+        width: 70px;
+    }
+    .form-group__input {
+        flex: 0 0 calc(100% - 75px);
+        label {
+            left: 5px;
+        }
+    }
+}
+
+.form-row {
+    .form-group {
+        label {
+            left: 5px;
+        }
+    }
+}
+
+// Placeholder
+
+/*=====  End of Material Form Common  ======*/
+
+
+/*=============================================
+=            Button            =
+=============================================*/
+
+.btn {
+    min-width: 6.625rem;
+    padding: .5rem 1rem;
+    font: {
+        family: myriad-pro, sans-serif;
+        weight: 700;
+        style: normal;
+    }
+    &:hover,
+    &:focus,
+    &:not(:disabled):not(.disabled):active {
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.btn-no-border {
+    border: none;
+}
+
+.btn-primary {
+    background-color: $pink;
+    outline: none;
+    &:hover,
+    &:focus,
+    &:not(:disabled):not(.disabled):active {
+        outline: none;
+        background-color: darken($pink, 10%);
+        box-shadow: none;
+    }
+}
+
+.btn-primary:not(:disabled):not(.disabled).active:focus,
+.btn-primary:not(:disabled):not(.disabled):active:focus,
+.show>.btn-primary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+.btn-icon {
+    >img {
+        margin-right: .15rem;
+    }
+}
+
+.btn-sm {
+    min-width: 40px;
+    padding: .5rem;
+}
+
+.btn-lg {
+    min-width: 190px;
+    font: {
+        size: 1.1rem;
+        weight: 500;
+    }
+}
+
+.btn-outline-primary {
+    border-color: $pink;
+    &:hover,
+    &:focus,
+    &:active {
+        border-color: $pink;
+        background-color: $pink;
+        outline: none;
+        box-shadow: none;
+    }
+}
+
+.btn-success {
+    color: #36A384;
+    background-color: #e3f0ed;
+}
+
+.btn-secondary {
+    border: none;
+    color: $placeholder-default;
+    background-color: #f7f8f9;
+    &:hover,
+    &:focus,
+    &:active {
+        color: $white;
+        background-color: $pink;
+    }
+    span {
+        margin-right: .75rem;
+    }
+}
+
+.c_1 {
+    color: white;
+    background-color: #d55b7d;
+}
+
+.bt_1 {
+    background-color: #d55b7d !important;
+}
+
+
+/*=====  End of Butoon  ======*/
+
+
+/*=============================================
+=            Sign in left part            =
+=============================================*/
+
+.signin-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    min-height: 730px;
+    padding: 45px 65px;
+    border: {
+        left: 7px solid $pink;
+    }
+    background-image: -moz-linear-gradient(0deg,
+    rgb(0, 22, 84) 0%,
+    rgb(0, 62, 117) 100%);
+    background-image: -webkit-linear-gradient(0deg,
+    rgb(0, 22, 84) 0%,
+    rgb(0, 62, 117) 100%);
+    background-image: -ms-linear-gradient(0deg,
+    rgb(0, 22, 84) 0%,
+    rgb(0, 62, 117) 100%);
+    z-index: 1;
+    // after
+    &::after,
+    &::before {
+        position: absolute;
+        content: '';
+    }
+    &::after {
+        width: 168px;
+        height: 90px;
+        top: 0;
+        right: 80px;
+        background: {
+            image: url('../../public/images/circle-top.svg');
+            size: 100%;
+            position: left bottom;
+            repeat: no-repeat;
+        }
+    }
+    &::before {
+        width: 410px;
+        height: 355px;
+        bottom: 0;
+        left: 0;
+        background: {
+            image: url('../../public/images/circle-bottom.svg');
+            size: 100%;
+            position: left top;
+            repeat: no-repeat;
+        }
+    }
+    //logo
+    .logo {
+        max-width: 193px;
+        >a {
+            display: block;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    //happy icon
+    .happy-icon {
+        position: absolute;
+        left: 50px;
+        bottom: 190px;
+    }
+    // white-dots
+    .white-dots {
+        position: absolute;
+        right: 20px;
+        bottom: 8px;
+        max-width: 150px;
+    }
+    //signin quote
+    .signin-quote {
+        position: absolute;
+        left: 76px;
+        bottom: 45px;
+        max-width: 445px;
+        color: $white;
+        p {
+            font-size: 22px;
+            &:last-child {
+                color: #aaa;
+            }
+        }
+    }
+}
+
+
+/*=====  End of Sign in left part  ======*/
+
+
+/*=============================================
+=            Radio Button Customized         =
+=============================================*/
+
+.custom-radio {
+    margin-bottom: 1rem;
+}
+
+.custom-control-label {
+    font: {
+        size: .9375rem;
+    }
+    color: $darken-blue;
+    outline: none;
+    &::before {
+        border-color: #cbd2dd;
+        z-index: 2;
+    }
+    &::after {
+        width: calc(1rem + 4px);
+        height: calc(1rem + 4px);
+        top: 2px;
+        left: -26px;
+        border-radius: 50%;
+        z-index: 1;
+    }
+}
+
+.custom-control-input {
+    &:checked {
+        &~.custom-control-label {
+            &::before {
+                border-color: $white;
+                background: $pink;
+                outline: none;
+            }
+            &::after {
+                background: $pink;
+                background-repeat: no-repeat;
+                background-position: center;
+            }
+        }
+    }
+}
+
+
+/*=====  End of Radio Button Customized  ======*/
+
+
+/*=============================================
+=            Sigm in Right            =
+=============================================*/
+
+.signin-right {
+    position: relative;
+    background: {
+        image: url(../../public/images/icon-crown.svg);
+        position: calc(100% - 60px) 40px;
+        attachment: fixed;
+        repeat: no-repeat;
+    }
+    // before
+    &::before {
+        position: fixed;
+        content: '';
+        width: 70px;
+        height: 70px;
+        top: 105px;
+        left: calc(50% + 25px);
+        border: .75rem solid #e4e6eb;
+        border-radius: 100%;
+    }
+}
+
+.right__content {
+    padding-top: 150px;
+}
+
+.right__content_login {
+    width: 100%;
+    max-width: 360px;
+    // Back button
+    .back-button {
+        position: fixed;
+        top: 60px;
+        left: calc(50% + 120px);
+    }
+    //icon
+    .icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 100%;
+        margin-bottom: 15px;
+        background-color: #e0e1e2;
+    }
+    // signin heading
+    .signin-heading {
+        margin-bottom: 5rem;
+        h1 {
+            margin-bottom: 1rem;
+            color: $dark-blue;
+            strong {
+                color: $pink;
+            }
+        }
+        p {
+            font: {
+                size: 1rem;
+            }
+            color: $light-blue;
+            span {
+                display: block;
+            }
+            a {
+                color: $pink;
+            }
+        }
+    }
+    // form group button
+    .form-group__button {
+        margin-top: 10rem;
+        p {
+            margin-top: 1rem;
+            font-size: 18px;
+            a {
+                color: $darken-blue;
+                &:hover,
+                &:focus {
+                    color: darken($darken-blue, 40%);
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+.registration-successful {
+    h1 {
+        position: relative;
+        font: {
+            family: 'Open Sans', sans-serif;
+            weight: 400;
+            size: 1.5rem;
+        }
+        color: $darken-blue;
+        &::after {
+            position: relative;
+            content: '';
+            display: block;
+            width: 100px;
+            height: 2px;
+            margin: 5px auto 1.75rem;
+            background-color: $pink;
+        }
+    }
+    p {
+        max-width: 280px;
+        margin: 0 auto;
+        color: $light-blue;
+        &:last-of-type {
+            margin-bottom: 8rem;
+        }
+    }
+    .registration__img {
+        display: block;
+        margin-bottom: 3.4rem;
+    }
+}
+
+
+/*=====  End of Sigm in Right  ======*/
+
+@media screen and (min-width: 1400px) {
+    .signin-left {
+        flex: 0 0 53%;
+        max-width: 53%;
+    }
+    .signin-right {
+        flex: 0 0 47%;
+        max-width: 47%;
+    }
+}
+
+@media screen and (max-height: 780px) {
+    .right__content {
+        padding-top: 8rem;
+    }
+    .right__content_login {
+        .form-group__button {
+            margin-top: 7.5rem;
+        }
+    }
+}

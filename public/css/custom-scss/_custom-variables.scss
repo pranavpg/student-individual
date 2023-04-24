@@ -1,0 +1,82 @@
+// Variables
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+// Color system
+
+$pink: #d55b7d;
+$dark-blue: #00031f;
+$darken-blue: #30475e;
+$light-blue: #9FA9C5;
+$underline: #dae1ef;
+$placeholder-default: #8e98b9;
+$blue: #003e75;
+$darkest-blue: #000748;
+$green: #36A384 !default;
+$primary: $pink;
+//
+// Variables should follow the `$component-state-property-size` formula for
+// consistent naming. Ex: $nav-link-disabled-color and $modal-content-box-shadow-xs.
+
+// Typography
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif: "Roboto",
+sans-serif,
+"Noto Color Emoji" !default;
+
+
+$font-family-base: $font-family-sans-serif !default;
+
+// Heading
+
+$h5-font-size: $font-size-base * 1.125;
+
+
+h1 {
+    font-size: 2.375rem;
+    font-weight: 300;
+
+    strong {
+        font-weight: 700;
+    }
+}
+
+// Common css
+
+
+
+/*=============================================
+=            Scrollbar            =
+=============================================*/
+.scrollbar {
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        border-radius: $border-radius-lg;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        background: $gray-100;
+        border-radius: $border-radius-lg;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: $gray-500;
+        border-radius: $border-radius-lg;
+    }
+
+    /* Handle on hover */
+    &::-webkit-scrollbar-thumb:hover {
+        background: $gray-500;
+        border-radius: $border-radius-lg;
+    }
+}
+
+
+
+/*=====  End of Scrollbar  ======*/

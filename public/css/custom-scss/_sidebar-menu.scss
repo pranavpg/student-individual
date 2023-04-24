@@ -1,0 +1,186 @@
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 10rem;
+    height: 100vh;
+    overflow:auto;
+    overflow-x:hidden;
+    scrollbar-width:thin;
+    border-left: 1rem solid $pink;
+
+    padding: {
+        top: 2rem;
+    }
+
+    background-color: $darken-blue;
+    transition: all 350ms ease;
+    z-index: 5;
+
+    @media screen and (max-height: 765px) {
+        padding-top: 1.25rem;
+    }
+
+    .navbar-profile {
+        min-height: 56px;
+        margin-bottom: 1.875rem;
+        padding: 0 1.5rem;
+
+        @media screen and (max-height: 765px) {
+            margin-bottom: 1.25rem;
+        }
+
+        .navbar-brand {
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            margin-right: 0;
+            background-color: $pink;
+            visibility: hidden;
+            opacity: 0;
+            transition: all 350ms ease;
+        }
+
+
+        .nav-opener {
+            display: flex;
+            width: 35px;
+            height: 35px;
+            border-radius: 100%;
+            margin-left: 2rem;
+
+            background: {
+                image: url('../../public/images/icon-nav-opener.svg');
+                color: #495d72;
+                position: center;
+                repeat: no-repeat;
+            }
+
+            opacity: .5;
+            transition: all 350ms ease;
+
+        }
+
+    }
+
+    // navbar heading
+    .navbar {
+        padding: 0 2.8rem;
+    }
+
+    .navbar-nav {
+
+        .nav-item {
+            position: relative;
+            width: 100%;
+            margin-bottom: 1.25rem;
+            border-radius: 1rem;
+            transition: all 350ms ease;
+
+            .nav-link {
+                display: flex;
+                flex-flow: wrap;
+                align-items: center;
+                border-radius: 1.5rem;
+                padding: .75rem;
+                opacity: .5;
+                transition: all 350ms ease;
+
+                .nav-icon {
+                    display: inline-flex;
+                    justify-content: center;
+                    width: 30px;
+                    transition: all 350ms ease;
+
+                    svg {
+                        opacity: .5;
+                    }
+                }
+
+                // nav icon
+
+                .nav-link__name {
+                    position: absolute;
+                    width: 155px;
+                    top: 50%;
+                    left: 45px;
+                    visibility: hidden;
+                    opacity: 0;
+                    color: $white;
+                    text-decoration: none;
+                    transition: all 350ms ease;
+                    transform: translateY(-50%);
+                }
+            }
+
+            // nav item
+
+            &.active {
+                background-color: $pink;
+                transition: all 350ms ease;
+
+                .nav-link {
+                    opacity: 1;
+
+                    .nav-icon {
+                        svg {
+                            opacity: 1;
+                        }
+                    }
+                }
+
+            }
+
+        }
+
+
+    }
+
+    // navbar nav
+
+    .navbar-profile {
+        &.active {
+            .nav-opener {
+                background-image: url('../../public/images/icon-nav-close.svg');
+            }
+        }
+    }
+
+
+    // Sidebar Open
+    &.active {
+        width: 18rem;
+
+        .navbar-profile {
+            .navbar-brand {
+                width: 40px;
+                height: 40px;
+                margin-left: 1.25rem;
+                margin-right: 1.5rem;
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        .navbar {
+            padding-right: 0;
+        }
+
+        .navbar-nav {
+            width: 100%;
+
+            .nav-item {
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+
+                .nav-link {
+                    .nav-link__name {
+                        visibility: visible;
+                        opacity: 1;
+                        left: 65px;
+                    }
+                }
+            }
+        }
+    }
+}
