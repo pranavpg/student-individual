@@ -183,7 +183,7 @@ class MarkingController extends Controller {
     $request_payload['practise_id']         = $request->practise_id;
     $request_payload['answer_id']           = $request->student_practise_id;
     $request_payload['marking_type']        = $request->markingmethod;
-    $request_payload['teacher_id']          = $request->teacher_id;
+    $request_payload['teacher_id']          =  isset($request->teacher_id)?$request->teacher_id:'';
     $request_payload['marks_gained']        = $request->mark;
     $request_payload['teacher_comment']     = $request->comment;
     $request_payload['submit_again']        = $request->subsmitAgain;
@@ -191,7 +191,7 @@ class MarkingController extends Controller {
     $request_payload['token_app_type']      = 'ieuk_new';
     $request_payload['token']               = Session::get('token');
     // dd(json_encode($request_payload));
-    $endPoint = "practisesubmitmarking_new";
+    $endPoint = "practisesubmitmarking_new_individual";
     $response = curl_post($endPoint, $request_payload);
     if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -737,7 +737,7 @@ class MarkingController extends Controller {
       $request_payload['token_app_type'] = 'ieuk_teacher';
       $request_payload['token'] = $userDetails['token_ieuk_teacher'];
       //  pr (json_encode($request_payload)); exit;
-      $endPoint = "practisesubmitmarking";
+      $endPoint = "practisesubmitmarking_new_individual";
       $response = curl_post($endPoint, $request_payload);
 
       if(empty($response)){

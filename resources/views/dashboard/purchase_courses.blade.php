@@ -200,13 +200,13 @@
          <h4 class="mb-4">Total : <span class="ml-2 total_price">0</span></h4>
          <button  type="button" class="btn btn-md btn-light mr-4 btn-trial">Try Out</button>
          <button type="button" class="btn btn-md btn-danger btn-purchase">Enroll Now</button>
+         <button type="button" onclick="payViaStripe();">Pay via stripe</button>
        </div>
      </div>
    </div>
  </main>
  <!--------------------->
-
-           <div class="modal cc-modal fade" id="paymentModel" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+     <div class="modal cc-modal fade" id="paymentModel" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
             <div class="modal-close">
@@ -270,7 +270,6 @@
                     </div>
                     <button class="subscribe btn btn-primary btn-block submitdata" style="margin-bottom: 12px;"> Confirm </button>
                     <span class="commonError" style="color:red;display: none;font-size:12px;"> </span>
-
             </div>
           </div>
         </div>
@@ -308,7 +307,6 @@
   });
   $(document).on('click','.btn-trial',function(){
     var ids =  $('.purchase_course.active').map(function(){
-
          return $(this).attr('id');
     }).get();
     var subscription_type = "trial";
@@ -323,11 +321,11 @@
     {
         alert("Please selecr course");
     }
+
   });
   $(document).on('click','.btn-purchase',function(){
-    $("#paymentModel").modal('show');
+    
     var ids =  $('.purchase_course.active').map(function(){
-
          return $(this).attr('id');
     }).get();
     var subscription_type = "purchase";
@@ -336,12 +334,14 @@
     var student_id = "edfe";
     if(converted_total > 9)
     {
+       // $("#paymentModel").modal('show');
         purchase_course(student_id,ids,converted_total,subscription_type);
     }
     else
     {
         alert("Please selecr course");
     }
+    
   });
   function purchase_course(student_id,ids,converted_total,subscription_type)
   {
@@ -361,6 +361,33 @@
       });
      console.log(ids);
   }
+ </script>
+ <script>
+  function payViaStripe() {
+  // get stripe payment intent
+  const stripePaymentIntent = "wfhgyuiwergfuyrfg_rfhgiuehrg_gwfygfygregf";//document.getElementById("stripe-payment-intent").value;
+  // execute the payment
+  stripe
+      .confirmCardPayment(stripePaymentIntent, {
+          payment_method: {
+                  card: cardElement,
+                  billing_details: {
+                      "email": "pranav.gevariya@gmail.com",
+                      "name":  "pranav gevariya",
+                      "phone": "9998616126"
+                  },
+              },
+          })
+          .then(function(result) {
+              // Handle result.error or result.paymentIntent
+              if (result.error) {
+                  console.log(result.error);
+              } else {
+                  console.log("The card has been verified successfully...", result.paymentIntent.id);
+                  // [call AJAX function here]
+              }
+          });
+  } 
  </script>
      <script type="">
 

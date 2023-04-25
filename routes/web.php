@@ -216,4 +216,7 @@ Route::post('/practice-detail/previous-marking', ['uses'=>'MarkingController@sho
 Route::post('/practice-submit-marking', ['uses'=>'MarkingController@savePracticeSubmitMarking']);
 Route::post('/rename-audio',['uses'=>'MarkingController@renameAudio']);
 Route::post('/purchase',['uses'=>'DashboardController@purchase']);
+Route::get('/register',['uses'=>'DashboardController@register']);
+Route::post('/store',['uses'=>'DashboardController@store']);
+
 

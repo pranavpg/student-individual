@@ -22,7 +22,10 @@ class DashboardController extends Controller {
             }
             if(Session::get('is_enrolled') == false OR Session::get('is_enrolled') == null)
             {
-                 return view('dashboard.purchase_courses', compact('request'));
+                   $request  = array('student_id' => Session::get('user_id_new'),'token' => Session::get('token'),'token_app_type' => 'ieuk_new');
+                   $endPoint = "individual_course_list";
+                   $available_courses = curl_get($endPoint, $request);
+                   return view('dashboard.purchase_courses', compact('request','available_courses'));
             }
             $onlyCourse     = $data['student_courses'];
             return view('dashboard.index', compact('onlyCourse'));
@@ -32,14 +35,13 @@ class DashboardController extends Controller {
         }
         return view('login.login-new');
     }
-    public function purchase_course(Request $request)
+    public function purchase_course()
     {
         $request = array(); 
         if(Session::get('user_id_new')!="") {
           $request  = array('student_id' => Session::get('user_id_new'),'token' => Session::get('token'),'token_app_type' => 'ieuk_new');
           $endPoint = "individual_course_list";
           $available_courses = curl_get($endPoint, $request);
-          
           return view('dashboard.purchase_courses', compact('request','available_courses'));
         }
         return view('login.login-new');
@@ -61,9 +63,58 @@ class DashboardController extends Controller {
     }
     public function purchase(Request $request)
     {
-         $params = $request->all(); 
+         $params       = $request->all(); 
+         $request      = array(); 
+         $request['level_id']    =  $params['level_id'];
+         $request['student_id']  =  Session::get('user_id_new');
+         $request['token']       =  Session::get('token');
+         $request['amount'] =  $params['total_price'];
+         $request['token_app_type'] = 'ieuk_new';
+         $request['email']  = "pranav.gev@yopmail.com";
+         //array('student_id' => Session::get('user_id_new'),'token' => Session::get('token'),'token_app_type' => 'ieuk_new');
          $level_id = $params['level_id'];//dd($params);
-         
+         $endPoint       = "generate_payment_intent";
+         $data           = curl_get($endPoint,$request);
+    }
+    public function register(Request $request)
+    {
+         return view('dashboard.register');
+    }
+    public function store(Request $request)
+    {
+        $endPoint = "student_registration";
+        $request['token_app_type']  = 'ieuk_new';
+        $request1 = array();
+        $request1['title']     = $request['title'];
+        $request1['firstname'] = $request['firstname'];
+        $request1['lastname']  = $request['lastname'];
+        $request1['email']     = $request['email'];
+        $request1['password']  = $request['password'];
+        $request1['country']   = $request['country'];
+        $request1['token_app_type'] = 'ieuk_new';
+        $student_registration  = curl_post($endPoint, $request1);
+        // $student_info = array(
+        //                              'franchisecode'  =>  'FZE3R',
+        //                              'student_id'     =>  $student_id,
+        //                              'email'          =>  strtolower($params['email']), 
+        //                              'token'          =>  $newToken,
+        //                              'token_app_type' =>  'ieuk_new',
+        //                              'base_url'       =>  "https://s3.amazonaws.com/imperialenglish.co.uk/"
+        //                          ); 
+        if($student_registration['success'] == true OR $student_registration['success'] == 'true')
+        {
+              Session::put('franchise_name', isset($student_registration['student_record']['franchise_name'])?$student_registration['student_record']['franchise_name']:'');
+              Session::put('franchise_code', $student_registration['student_record']['franchisecode']);
+              Session::put('user_id_new', $student_registration['student_record']['student_id']);
+              Session::put('first_name', $student_registration['student_record']['firstname']);
+              Session::put('last_name', $student_registration['student_record']['lastname']);
+              Session::put('token', $student_registration['student_record']['token']);
+             return response()->json(['success' => true, 'message' => $student_registration['message']], 200);
+        }
+        else
+        {
+             return response()->json(['success' => false, 'message' => $student_registration['message']], 200);
+        }
     }
     public function login_post_new(Request $request) {
         $profileStatus= ''; 
