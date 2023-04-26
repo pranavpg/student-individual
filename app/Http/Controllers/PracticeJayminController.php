@@ -80,7 +80,7 @@ class PracticeJayminController extends Controller
 		}
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 		// dd($request_payload);
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
 			return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -237,7 +237,7 @@ class PracticeJayminController extends Controller
 		// 	$request_payload['is_file'] = false;
 		// }
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 	 ///	pr($request_payload);
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
@@ -379,7 +379,7 @@ class PracticeJayminController extends Controller
 		// }
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 		// dd(json_encode($request_payload));
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
 			return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -588,7 +588,7 @@ class PracticeJayminController extends Controller
 			$request_payload['is_file'] = true;
 		}
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 	 
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
@@ -771,7 +771,7 @@ class PracticeJayminController extends Controller
 			$request_payload['is_file'] = true;
 		}
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 	 
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
@@ -938,7 +938,7 @@ class PracticeJayminController extends Controller
 			$request_payload['is_file'] = true;
 		}
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 	 
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
@@ -1075,7 +1075,7 @@ class PracticeJayminController extends Controller
 			$request_payload['is_file'] = true;
 		}
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
 			return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1185,7 +1185,7 @@ class PracticeJayminController extends Controller
 			$request_payload['is_file'] = true;
 		}
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
 			return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1294,7 +1294,7 @@ class PracticeJayminController extends Controller
 			$request_payload['is_file'] = true;
 		}
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
 			return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1437,7 +1437,7 @@ class PracticeJayminController extends Controller
 			$request_payload['is_file'] = true;
 		}
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
 			return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1568,7 +1568,7 @@ class PracticeJayminController extends Controller
 			$request_payload['is_file'] = true;
 		}
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 		if(!empty($request['is_roleplay']) && $request['is_roleplay']==true){
 			$request_payload['is_roleplay'] = true;
 		}
@@ -1619,7 +1619,7 @@ class PracticeJayminController extends Controller
 		$request_payload['user_answer'] = $user_ans;
 		$request_payload['save_for_later'] = true;
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 		//	pr($request_payload);
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
@@ -1682,7 +1682,7 @@ class PracticeJayminController extends Controller
 			$request_payload['is_file'] = true;
 		}
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
@@ -1717,7 +1717,7 @@ class PracticeJayminController extends Controller
 		}
 
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
@@ -1799,7 +1799,7 @@ class PracticeJayminController extends Controller
 		$request_payload['is_roleplay'] = true;
 
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
@@ -1834,7 +1834,7 @@ class PracticeJayminController extends Controller
 		}
 
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){
@@ -1900,7 +1900,7 @@ class PracticeJayminController extends Controller
 		}
 
 		$request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-		$endPoint = "practisesubmit";
+		$endPoint = "practisesubmit-individual";
 
 		$response = curl_post($endPoint, $request_payload);
 		if(empty($response)){

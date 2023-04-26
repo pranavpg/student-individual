@@ -40,7 +40,7 @@ class PracticeArshitController extends Controller {
       $request_payload['save_for_later'] = true;
       $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
       // dd( $request_payload );
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -133,7 +133,7 @@ class PracticeArshitController extends Controller {
         $request_payload['user_answer'] = $user_ans;
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
           return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -180,7 +180,7 @@ class PracticeArshitController extends Controller {
       $request_payload['save_for_later'] = true;
       $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -228,7 +228,7 @@ class PracticeArshitController extends Controller {
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -260,7 +260,7 @@ class PracticeArshitController extends Controller {
       $request_payload['save_for_later'] = true;
       $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -322,7 +322,7 @@ class PracticeArshitController extends Controller {
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -371,7 +371,7 @@ class PracticeArshitController extends Controller {
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -418,7 +418,7 @@ class PracticeArshitController extends Controller {
       $request_payload['save_for_later'] = true;
       $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -503,7 +503,7 @@ class PracticeArshitController extends Controller {
       $request_payload['save_for_later'] = true;
       $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -560,7 +560,7 @@ class PracticeArshitController extends Controller {
       $request_payload['user_answer']           = $user_ans;
       $request_payload['save_for_later']        = true;
       $request_payload['is_save']               = ($request['is_save']==1) ? true : false;
-      $endPoint                                 = "practisesubmit";
+      $endPoint                                 = "practisesubmit-individual";
       //echo '<pre>'; print_r($request_payload); exit;
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
@@ -601,7 +601,7 @@ class PracticeArshitController extends Controller {
         $request_payload['user_answer'] = $user_ans;
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
       //  pr( $response );
         if(empty($response)){
@@ -651,7 +651,7 @@ class PracticeArshitController extends Controller {
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -701,7 +701,7 @@ class PracticeArshitController extends Controller {
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -746,7 +746,7 @@ class PracticeArshitController extends Controller {
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -789,7 +789,7 @@ class PracticeArshitController extends Controller {
       $request_payload['token_app_type'] = 'ieuk_new';
       $request_payload['token'] = Session::get('token');
       // echo '<pre>'; print_r($request_payload); exit;
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -925,7 +925,7 @@ class PracticeArshitController extends Controller {
         if(!empty($request['is_roleplay_submit']) && $request['is_roleplay_submit']==1 ){
           $request_payload['is_roleplay_submit'] = true;
         }
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
           return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -955,7 +955,7 @@ class PracticeArshitController extends Controller {
       $request_payload['token_app_type'] = 'ieuk_new';
       $request_payload['token'] = Session::get('token');
       // echo '<pre>'; print_r($request_payload); exit;
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -991,7 +991,7 @@ class PracticeArshitController extends Controller {
       $request_payload['user_answer']=$userAnswer;
       $request_payload['token_app_type'] = 'ieuk_new';
       $request_payload['token'] = Session::get('token');
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1026,7 +1026,7 @@ class PracticeArshitController extends Controller {
       $request_payload['token_app_type'] = 'ieuk_new';
       $request_payload['token'] = Session::get('token');
 
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1070,7 +1070,7 @@ class PracticeArshitController extends Controller {
        $request_payload['user_answer'] = $user_ans;
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
        if(empty($response)){
          return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);

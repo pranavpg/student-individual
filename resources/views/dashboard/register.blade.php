@@ -361,12 +361,12 @@
                         </div>
                         <div class="form-label-group">
                           <select class="form-control form-control__email" placeholder="" name="country" id="country">
-							              <option value="">Select Country</option>
-							              <option value="1">America</option>
-							              <option value="2">Africa</option>
-							              <option value="3">Canada</option>
-						              </select>
-                            <div class="invalid-feedback">Invalid Country</div>
+							    <option value="">Select Country</option>
+                              @foreach($data['result'] as $key => $value)
+							    <option value="{{$value['id']}}">{{$value['name']}}</option>
+                              @endforeach
+						   </select>
+                          <div class="invalid-feedback">Invalid Country</div>
                         </div>
                         <div class="form-label-group form-label-group__last position-relative mb-3">
                             <input type="password" class="form-control form-control__password" autocomplete="off" placeholder="Password" name="password" id="password">
@@ -375,8 +375,8 @@
                             <div class="invalid-feedback">Invalid password</div>
                         </div>
                         <div class="d-flex my-4 justify-content-center">
-                            <input class="mr-2" type="checkbox" value="" id="flexCheckChecked" checked>
-                            <label class="form-check-label" for="flexCheckChecked">Our <a href="">terms of use</a> & <a href="">privacy policy</a></label>
+                         <input class="mr-2" type="checkbox" value="" id="flexCheckChecked" checked>
+                         <label class="form-check-label" for="flexCheckChecked">Our <a href="">terms of use</a> & <a href="">privacy policy</a></label>
                         </div>
                         <button type="submit" class="btn btn-danger btn-sm mb-2 mx-auto d-block">Register</button>
                         <!-- <p class=" text-center"><a href="https://student.imperial-english.com/forgot-password">Forgot your password?</a></p> -->

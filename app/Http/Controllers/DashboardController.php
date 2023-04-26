@@ -78,7 +78,9 @@ class DashboardController extends Controller {
     }
     public function register(Request $request)
     {
-         return view('dashboard.register');
+         $endPoint       = "getcountry_new";
+         $data           = curl_get($endPoint,$request);
+         return view('dashboard.register',compact('data'));
     }
     public function store(Request $request)
     {

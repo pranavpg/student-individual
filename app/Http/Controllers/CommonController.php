@@ -41,7 +41,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $new_arg;
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -87,7 +87,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'][0]['text_ans'][0] = $request['text_ans'];
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -111,7 +111,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $request['text_ans'];
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -153,7 +153,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] =$finalAns;
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -211,7 +211,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'][0]['path'] = $encoded_data;
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -250,7 +250,7 @@ class CommonController extends Controller {
         if(!empty($encoded_data)){
           $request_payload['is_file'] = !empty($encoded_data) ? true : false;
         }
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -287,7 +287,7 @@ class CommonController extends Controller {
         if(!empty($encoded_data)){
             $request_payload['is_file'] = !empty($encoded_data) ? true : false;
         }
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -347,7 +347,7 @@ class CommonController extends Controller {
         if(!empty($encoded_data)){
             $request_payload['is_file'] = !empty($encoded_data) ? true : false;
         }
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
 
         if(empty($response)){
@@ -398,7 +398,7 @@ class CommonController extends Controller {
         if(!empty($encoded_data)){
             $request_payload['is_file'] = !empty($encoded_data) ? true : false;
         }
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -437,7 +437,7 @@ class CommonController extends Controller {
         }
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -464,7 +464,7 @@ class CommonController extends Controller {
         }
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -520,7 +520,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] =$user_ans;
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -557,7 +557,7 @@ class CommonController extends Controller {
         if($is_file){
           $request_payload['is_file'] = true;
         }
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -597,7 +597,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] =$user_ans;
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -631,7 +631,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] =$finalAns;
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -792,7 +792,7 @@ class CommonController extends Controller {
         $request_payload['is_file'] = $encoded_data !== "" ? true : false;
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
           return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -844,7 +844,7 @@ class CommonController extends Controller {
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
         $request_payload['is_file'] = ($encoded_data == "") ? false : true;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -878,7 +878,7 @@ class CommonController extends Controller {
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
         $request_payload['user_answer'] = "";
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -921,7 +921,7 @@ class CommonController extends Controller {
        $request_payload['user_answer'] = $user_ans;
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
        if(empty($response)){
          return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -964,7 +964,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $user_ans;
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1020,7 +1020,7 @@ class CommonController extends Controller {
         $request_payload['is_file'] = !empty($encoded_data) ? true : false;
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1059,7 +1059,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $user_ans;
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1128,7 +1128,7 @@ class CommonController extends Controller {
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
         $request_payload['is_file'] = ($encoded_data !== "") ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1158,7 +1158,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = strip_tags($request['text_ans']);
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1192,7 +1192,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] =$user_ans;
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1220,7 +1220,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $request['user_answer'];
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1249,7 +1249,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $request['user_answer'];
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1302,7 +1302,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $user_ans;
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1335,7 +1335,7 @@ class CommonController extends Controller {
         if(!empty($request['is_roleplay_submit']) && $request['is_roleplay_submit']==1 ){
             $request_payload['is_roleplay_submit'] = true;
         }
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         return $response;
     }
@@ -1443,7 +1443,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = array($user_ans);
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1490,7 +1490,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $user_ans;
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1553,7 +1553,7 @@ class CommonController extends Controller {
         if(!empty($request['is_roleplay_submit']) && $request['is_roleplay_submit']==1 ){
             $request_payload['is_roleplay_submit'] = true;
         }
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1620,7 +1620,7 @@ class CommonController extends Controller {
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
         $request_payload['is_file'] = $encoded_data !== "" ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1657,7 +1657,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $user_ans;
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1698,7 +1698,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $user_ans;
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1794,7 +1794,7 @@ class CommonController extends Controller {
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
         $request_payload['is_file'] = !empty($encoded_data) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -1900,7 +1900,7 @@ class CommonController extends Controller {
         if(!empty($request['is_roleplay'])){
             $request_payload['is_roleplay'] = true;
         }
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -2036,7 +2036,7 @@ class CommonController extends Controller {
           $request_payload['is_roleplay_submit'] = true;
         }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -2126,7 +2126,7 @@ class CommonController extends Controller {
         $request_payload['user_answer']=$userAnswer;
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -2176,7 +2176,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $user_ans;
         $request_payload['token_app_type'] = 'ieuk_new';
         $request_payload['token'] = Session::get('token');
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -2222,7 +2222,7 @@ class CommonController extends Controller {
       $request_payload['save_for_later'] = true;
       $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
       // dd( $request_payload );
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -2315,7 +2315,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $user_ans;
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
           return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -2362,7 +2362,7 @@ class CommonController extends Controller {
       $request_payload['save_for_later'] = true;
       $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -2410,7 +2410,7 @@ class CommonController extends Controller {
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -2442,7 +2442,7 @@ class CommonController extends Controller {
       $request_payload['save_for_later'] = true;
       $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -2495,7 +2495,7 @@ class CommonController extends Controller {
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -2544,7 +2544,7 @@ class CommonController extends Controller {
       $request_payload['save_for_later'] = true;
       $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -2629,7 +2629,7 @@ class CommonController extends Controller {
       $request_payload['save_for_later'] = true;
       $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -2686,7 +2686,7 @@ class CommonController extends Controller {
       $request_payload['user_answer']           = $user_ans;
       $request_payload['save_for_later']        = true;
       $request_payload['is_save']               = ($request['is_save']==1) ? true : false;
-      $endPoint                                 = "practisesubmit";
+      $endPoint                                 = "practisesubmit-individual";
       //echo '<pre>'; print_r($request_payload); exit;
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
@@ -2727,7 +2727,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $user_ans;
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
       //  pr( $response );
         if(empty($response)){
@@ -2777,7 +2777,7 @@ class CommonController extends Controller {
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -2827,7 +2827,7 @@ class CommonController extends Controller {
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -2872,7 +2872,7 @@ class CommonController extends Controller {
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
 
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
      //  pr( $response );
        if(empty($response)){
@@ -2915,7 +2915,7 @@ class CommonController extends Controller {
       $request_payload['token_app_type'] = 'ieuk_new';
       $request_payload['token'] = Session::get('token');
       // echo '<pre>'; print_r($request_payload); exit;
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -3051,7 +3051,7 @@ class CommonController extends Controller {
         if(!empty($request['is_roleplay_submit']) && $request['is_roleplay_submit']==1 ){
           $request_payload['is_roleplay_submit'] = true;
         }
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
           return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -3081,7 +3081,7 @@ class CommonController extends Controller {
       $request_payload['token_app_type'] = 'ieuk_new';
       $request_payload['token'] = Session::get('token');
       // echo '<pre>'; print_r($request_payload); exit;
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -3117,7 +3117,7 @@ class CommonController extends Controller {
       $request_payload['user_answer']=$userAnswer;
       $request_payload['token_app_type'] = 'ieuk_new';
       $request_payload['token'] = Session::get('token');
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -3152,7 +3152,7 @@ class CommonController extends Controller {
       $request_payload['token_app_type'] = 'ieuk_new';
       $request_payload['token'] = Session::get('token');
 
-      $endPoint = "practisesubmit";
+      $endPoint = "practisesubmit-individual";
       $response = curl_post($endPoint, $request_payload);
       if(empty($response)){
         return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -3196,7 +3196,7 @@ class CommonController extends Controller {
        $request_payload['user_answer'] = $user_ans;
        $request_payload['save_for_later'] = true;
        $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-       $endPoint = "practisesubmit";
+       $endPoint = "practisesubmit-individual";
        $response = curl_post($endPoint, $request_payload);
        if(empty($response)){
          return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -3281,7 +3281,7 @@ class CommonController extends Controller {
         }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
         // dd($request_payload);
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -3438,7 +3438,7 @@ class CommonController extends Controller {
         //  $request_payload['is_file'] = false;
         // }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
      ///    pr($request_payload);
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
@@ -3580,7 +3580,7 @@ class CommonController extends Controller {
         // }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
         // dd(json_encode($request_payload));
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -3793,7 +3793,7 @@ class CommonController extends Controller {
             $request_payload['is_file'] = true;
         }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -3975,7 +3975,7 @@ class CommonController extends Controller {
             $request_payload['is_file'] = true;
         }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
      
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
@@ -4142,7 +4142,7 @@ class CommonController extends Controller {
             $request_payload['is_file'] = true;
         }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
      
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
@@ -4279,7 +4279,7 @@ class CommonController extends Controller {
             $request_payload['is_file'] = true;
         }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -4389,7 +4389,7 @@ class CommonController extends Controller {
             $request_payload['is_file'] = true;
         }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -4498,7 +4498,7 @@ class CommonController extends Controller {
             $request_payload['is_file'] = true;
         }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -4641,7 +4641,7 @@ class CommonController extends Controller {
             $request_payload['is_file'] = true;
         }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
             return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200);
@@ -4772,7 +4772,7 @@ class CommonController extends Controller {
             $request_payload['is_file'] = true;
         }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         if(!empty($request['is_roleplay']) && $request['is_roleplay']==true){
             $request_payload['is_roleplay'] = true;
         }
@@ -4823,7 +4823,7 @@ class CommonController extends Controller {
         $request_payload['user_answer'] = $user_ans;
         $request_payload['save_for_later'] = true;
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
         //  pr($request_payload);
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
@@ -4886,7 +4886,7 @@ class CommonController extends Controller {
             $request_payload['is_file'] = true;
         }
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
 
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
@@ -4921,7 +4921,7 @@ class CommonController extends Controller {
         }
 
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
 
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
@@ -5003,7 +5003,7 @@ class CommonController extends Controller {
         $request_payload['is_roleplay'] = true;
 
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
 
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
@@ -5038,7 +5038,7 @@ class CommonController extends Controller {
         }
 
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
 
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
@@ -5104,7 +5104,7 @@ class CommonController extends Controller {
         }
 
         $request_payload['is_save'] = ($request['is_save']==1) ? true : false;
-        $endPoint = "practisesubmit";
+        $endPoint = "practisesubmit-individual";
 
         $response = curl_post($endPoint, $request_payload);
         if(empty($response)){
