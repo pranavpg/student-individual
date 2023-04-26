@@ -24,8 +24,9 @@ class DashboardController extends Controller {
             {
                    $request  = array('student_id' => Session::get('user_id_new'),'token' => Session::get('token'),'token_app_type' => 'ieuk_new');
                    $endPoint = "individual_course_list";
+                   $student_id = Session::get('user_id_new');
                    $available_courses = curl_get($endPoint, $request);
-                   return view('dashboard.purchase_courses', compact('request','available_courses'));
+                   return view('dashboard.purchase_courses', compact('request','available_courses','student_id'));
             }
             $onlyCourse     = $data['student_courses'];
             return view('dashboard.index', compact('onlyCourse'));
@@ -41,8 +42,9 @@ class DashboardController extends Controller {
         if(Session::get('user_id_new')!="") {
           $request  = array('student_id' => Session::get('user_id_new'),'token' => Session::get('token'),'token_app_type' => 'ieuk_new');
           $endPoint = "individual_course_list";
+          $student_id = Session::get('user_id_new');
           $available_courses = curl_get($endPoint, $request);
-          return view('dashboard.purchase_courses', compact('request','available_courses'));
+          return view('dashboard.purchase_courses', compact('request','available_courses','student_id'));
         }
         return view('login.login-new');
     }
@@ -64,18 +66,41 @@ class DashboardController extends Controller {
     public function purchase(Request $request)
     {
          $params       = $request->all(); 
-         $request      = array(); 
-         $request['level_id']    =  $params['level_id'];
-         $request['student_id']  =  Session::get('user_id_new');
-         $request['token']       =  Session::get('token');
-         $request['amount'] =  $params['total_price'];
-         $request['token_app_type'] = 'ieuk_new';
-         $request['email']  = "pranav.gev@yopmail.com";
+         $request1      = array(); 
+         $request1['level_id']    =  $params['level_id'];
+         $request1['student_id']  =  Session::get('user_id_new');
+         $request1['token']       =  Session::get('token');
+         $request1['email']       =  '';//Session::get('token');
+         $request1['amount']      =  $params['total_price'];
+         $request1['token_app_type'] = 'ieuk_new';
+         // $request1['email']  = "pranav.gev@yopmail.com";
          //array('student_id' => Session::get('user_id_new'),'token' => Session::get('token'),'token_app_type' => 'ieuk_new');
-         $level_id = $params['level_id'];//dd($params);
-         $endPoint       = "generate_payment_intent";
-         $data           = curl_get($endPoint,$request);
+         // $level_id = $params['level_id'];//dd($params);
+         if($params['subscription_type'] == "purchase")
+         {
+             $request1['fullName']    =  $params['fullName'];
+             $request1['cardNumber']  =  $params['cardNumber'];
+             $request1['month']       =  $params['month'];
+             $request1['year']        =  $params['year'];
+             $request1['cvv']         =  $params['cvv'];
+         }
+         // dd($request1);
+         $endPoint       = "course_payment";
+         $data           = curl_post($endPoint,$request1);
+         return response()->json($data);
     }
+    // public function purchase_model(Request $request)
+    // {
+    //      $params       = $request->all(); 
+    //      $request      = array(); 
+    //      $request['level_id']    =  $params['level_id'];
+    //      $request['student_id']  =  Session::get('user_id_new');
+    //      $request['token']       =  Session::get('token');
+    //      $request['amount'] =  $params['total_price'];
+    //      $request['token_app_type'] = 'ieuk_new';
+    //      $request['email']  = "pranav.gev@yopmail.com";
+    //      $html = view('dashboard.purchase-model',compact('request'))->render();
+    // }
     public function register(Request $request)
     {
          $endPoint       = "getcountry_new";
@@ -95,14 +120,6 @@ class DashboardController extends Controller {
         $request1['country']   = $request['country'];
         $request1['token_app_type'] = 'ieuk_new';
         $student_registration  = curl_post($endPoint, $request1);
-        // $student_info = array(
-        //                              'franchisecode'  =>  'FZE3R',
-        //                              'student_id'     =>  $student_id,
-        //                              'email'          =>  strtolower($params['email']), 
-        //                              'token'          =>  $newToken,
-        //                              'token_app_type' =>  'ieuk_new',
-        //                              'base_url'       =>  "https://s3.amazonaws.com/imperialenglish.co.uk/"
-        //                          ); 
         if($student_registration['success'] == true OR $student_registration['success'] == 'true')
         {
               Session::put('franchise_name', isset($student_registration['student_record']['franchise_name'])?$student_registration['student_record']['franchise_name']:'');
@@ -110,6 +127,7 @@ class DashboardController extends Controller {
               Session::put('user_id_new', $student_registration['student_record']['student_id']);
               Session::put('first_name', $student_registration['student_record']['firstname']);
               Session::put('last_name', $student_registration['student_record']['lastname']);
+              Session::put('email', $student_registration['student_record']['email']);
               Session::put('token', $student_registration['student_record']['token']);
              return response()->json(['success' => true, 'message' => $student_registration['message']], 200);
         }
@@ -140,9 +158,7 @@ class DashboardController extends Controller {
         $request['app_device_token']    = 'web';
         $request['device_type']         = 'web';
         $endPoint                       = "student_auth";
-      //  dd(json_encode($request));
         $response                       = curl_post($endPoint, $request);
-        // dd($response);
         if(isset($response['invalid_token']) && $response['invalid_token']){
             \Session::flush();
             return redirect('/')->with('message',$response['message']); 
@@ -159,6 +175,7 @@ class DashboardController extends Controller {
             Session::put('first_name', $response['student_record']['firstname']);
             Session::put('last_name', $response['student_record']['lastname']);
             Session::put('token', $response['student_record']['token']);
+            Session::put('email', $response['student_record']['email']);
             Session::put('topic_task_status', 'false');
             $logo_type_new      = isset($response['student_record']['logo_type'])?$response['student_record']['logo_type']:1;
             $logo_img_new       = (isset($response['student_record']['logo_img']) && $response['student_record']['logo_img']!="")?$response['student_record']['logo_img']:1;
@@ -253,7 +270,7 @@ class DashboardController extends Controller {
         $request['student_id'] = Session::get('user_id_new');
         $request['token_app_type'] = 'ieuk_new';
         $request['token'] = Session::get('token');
-        $endPoint  = "studentprogress";
+        $endPoint  = "individual_studentprogress";
         $response = curl_post($endPoint, $request);
         if(isset($response['invalid_token']) && $response['invalid_token']){
             \Session::flush();
@@ -294,7 +311,7 @@ class DashboardController extends Controller {
             $request['student_id']          = Session::get('user_id_new');
             $request['token_app_type']      = 'ieuk_new';
             $request['token']               = Session::get('token');
-            $endPoint                       = "portfolio_new";
+            $endPoint                       = "individual_portfolio_new";
             $response2                      = curl_get($endPoint , $request);
             $instration                     = isset($response2['page_info'])?$response2['page_info']:[];
             $courses                        = $response2['result'];

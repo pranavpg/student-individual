@@ -565,7 +565,6 @@
                 $("#add_feedback_facility_form .form-control_underline").each(function() {
                     $(this).next().val($(this).text())
                 });
-
                 $.ajax({
                     url: "ddd",
                     headers: {

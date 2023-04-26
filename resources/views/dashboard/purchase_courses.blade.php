@@ -166,6 +166,7 @@
        <div class="logo-section d-flex align-items-center text-center">
          <a href="javascript:void(0)" class="btn btn-sm back-btn"> Back </a> 
          <a href="javascript:void(0)" class="mx-auto"> <img src="https://imperial-english.com/uktour/images/logo-text.png" width="180"></a> 
+         <h6>StudentId: {{$student_id}} </h6> 
        </div>
        <div class="row">
         @foreach($available_courses['courses'] as $key => $value)
@@ -198,82 +199,77 @@
        </div>
        <div class="mt-4 text-center">
          <h4 class="mb-4">Total : <span class="ml-2 total_price">0</span></h4>
-         <button  type="button" class="btn btn-md btn-light mr-4 btn-trial">Try Out</button>
-         <button type="button" class="btn btn-md btn-danger btn-purchase">Enroll Now</button>
-         <button type="button" onclick="payViaStripe();">Pay via stripe</button>
+         <button  type="button" class="btn btn-md btn-light mr-4 btn-trial" id="try">Try Out</button>
+         <button type="button" class="btn btn-md btn-danger btn-purchase-model" id="enroll">Enroll Now</button>
        </div>
      </div>
    </div>
  </main>
  <!--------------------->
-     <div class="modal cc-modal fade" id="paymentModel" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-          <div class="modal-content">
-            <div class="modal-close">
-              <button type="button" data-dismiss="modal" aria-label="Close" class="close-modal">
-              <i class="fas fa-times"></i>
-              </button>
-            </div>
-            <div class="modal-body">
-
-                    <div class="form-group">
-                        <!-- <label for="username">Full name (on the card)</label> -->
-                        <input type="text" class="form-control" name="fullName" id="cardname" placeholder="Full name (on the card)">
-                        <span class="cardnameError p-error"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="cardNumber">Card number</label>
-                        <div class="input-group">
-                            <input type="text" class="form-control cc-number" name="cardNumber" id="cardNumber" placeholder="Card Number">
-                            <div class="input-group-append">
-                                <span class="input-group-text text-muted">
-                                <i class="fab fa-cc-visa fa-lg pr-1"></i>
-                                <i class="fab fa-cc-amex fa-lg pr-1"></i>
-                                <i class="fab fa-cc-mastercard fa-lg"></i>
-                                </span>
-                            </div>
-                        </div>
-                        <span class="cardNumberError p-error"></span>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-8">
-                            <div class="form-group">
-                                <label><span class="hidden-xs">Expiration</span> </label>
-                                <div class="input-group">
-                                    <select class="form-control" name="month" id="month">
-                                        <option value="">MM</option>
-                                        @foreach(range(1, 12) as $month)
-                                            <option value="{{$month}}">{{$month}}</option>
-                                        @endforeach
-                                    </select>
-                                    <!-- <span class="monthError p-error"></span> -->
-                                    <select class="form-control" name="year" id="year">
-                                        <option value="">YYYY</option>
-                                        @foreach(range(date('Y'), date('Y') + 10) as $year)
-                                            <option value="{{$year}}">{{$year}}</option>
-                                        @endforeach
-                                    </select>
-
-                                </div>
-                                  <span class="yearError p-error"></span>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <!-- <label data-toggle="tooltip" title=""
-                                    data-original-title="3 digits code on back side of the card">CVV <i
-                                    class="fa fa-question-circle"></i></label> -->
-                                <input type="number" class="form-control" onKeyPress="if(this.value.length==4) return false;" placeholder="CVV" name="cvv" id="cvv">
-                              <span class="cvvError p-error"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="subscribe btn btn-primary btn-block submitdata" style="margin-bottom: 12px;"> Confirm </button>
-                    <span class="commonError" style="color:red;display: none;font-size:12px;"> </span>
-            </div>
-          </div>
+ <div class="modal cc-modal fade" id="paymentModel" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+   <div class="modal-dialog modal-dialog-centered" role="document">
+     <div class="modal-content">
+       <div class="modal-close">
+           <button type="button" data-dismiss="modal" aria-label="Close" class="close-modal">
+            <i class="fas fa-times"></i>
+           </button>
         </div>
-      </div>
+        <div class="modal-body">
+          <div class="form-group">
+              <!-- <label for="username">Full name (on the card)</label> -->
+              <input type="text" class="form-control" name="fullName" id="cardname" placeholder="Full name (on the card)">
+              <span class="cardnameError p-error"></span>
+          </div>
+          <div class="form-group">
+              <label for="cardNumber">Card number</label>
+              <div class="input-group">
+                  <input type="text" class="form-control cc-number" name="cardNumber" id="cardNumber" placeholder="Card Number">
+                  <div class="input-group-append">
+                      <span class="input-group-text text-muted">
+                      <i class="fab fa-cc-visa fa-lg pr-1"></i>
+                      <i class="fab fa-cc-amex fa-lg pr-1"></i>
+                      <i class="fab fa-cc-mastercard fa-lg"></i>
+                      </span>
+                  </div>
+              </div>
+              <span class="cardNumberError p-error"></span>
+          </div>
+         <div class="row">
+            <div class="col-sm-8">
+                <div class="form-group">
+                    <label><span class="hidden-xs">Expiration</span> </label>
+                    <div class="input-group">
+                        <select class="form-control" name="month" id="month">
+                            <option value="">MM</option>
+                            @foreach(range(1, 12) as $month)
+                                <option value="{{$month}}">{{$month}}</option>
+                            @endforeach
+                        </select>
+                        <!-- <span class="monthError p-error"></span> -->
+                        <select class="form-control" name="year" id="year">
+                            <option value="">YYYY</option>
+                            @foreach(range(date('Y'), date('Y') + 10) as $year)
+                                <option value="{{$year}}">{{$year}}</option>
+                            @endforeach
+                        </select>
+
+                    </div>
+                       <span class="yearError p-error"></span>
+                </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-group">
+                  <input type="number" class="form-control" onKeyPress="if(this.value.length==4) return false;" placeholder="CVV" name="cvv" id="cvv">
+                  <span class="cvvError p-error"></span>
+              </div>
+            </div>
+        </div>
+            <button class="subscribe btn btn-primary btn-block btn-purchase" style="margin-bottom: 12px;"> Confirm </button>
+            <span class="commonError" style="color:red;display: none;font-size:12px;"> </span>
+       </div>
+    </div>
+   </div>
+  </div>
  <!---------------------->
  <script type="text/javascript">
  $(document).on('click','.purchase_course',function(){
@@ -305,6 +301,18 @@
       $(".total_price").text(final_total);
    }
   });
+  $(document).on('click','.btn-purchase-model',function(){
+    var total_price = $(".total_price").text();
+    var converted_total = parseInt(total_price);
+    if(converted_total > 9)
+    {
+       $("#paymentModel").modal('show');
+    }
+    else
+    {
+        alert("Please selecr course");
+    }
+  });
   $(document).on('click','.btn-trial',function(){
     var ids =  $('.purchase_course.active').map(function(){
          return $(this).attr('id');
@@ -323,28 +331,36 @@
     }
 
   });
-  $(document).on('click','.btn-purchase',function(){
+  // $(document).on('click','.btn-purchase',function(){
     
-    var ids =  $('.purchase_course.active').map(function(){
-         return $(this).attr('id');
-    }).get();
-    var subscription_type = "purchase";
-    var total_price = $(".total_price").text();
-    var converted_total = parseInt(total_price);
-    var student_id = "edfe";
-    if(converted_total > 9)
-    {
-       // $("#paymentModel").modal('show');
-        purchase_course(student_id,ids,converted_total,subscription_type);
-    }
-    else
-    {
-        alert("Please selecr course");
-    }
+  //   var ids =  $('.purchase_course.active').map(function(){
+  //        return $(this).attr('id');
+  //   }).get();
+  //   var subscription_type = "purchase";
+  //   var total_price = $(".total_price").text();
+  //   var converted_total = parseInt(total_price);
+  //   var student_id = "edfe";
+  //   var card_details = {};
+  //   card_details['cardname']   = $("#cardname").val();
+  //   card_details['cardNumber'] = $("#cardNumber").val();
+  //   card_details['month']      = $("#month").val();
+  //   card_details['year']       = $("#year").val();
+  //   card_details['cvv']        = $("#cvv").val();
+  //   if(converted_total > 9)
+  //   {
+  //      // $("#paymentModel").modal('show');
+  //       purchase_course(student_id,ids,converted_total,subscription_type,);
+  //   }
+  //   else
+  //   {
+  //       alert("Please selecr course");
+  //   }
     
-  });
+  // });
   function purchase_course(student_id,ids,converted_total,subscription_type)
   {
+      $("#try").attr("disabled", true);
+      $("#enroll").attr("disabled", true);
       $.ajax({
         type: "POST",
         url: '{{ URL("purchase") }}',
@@ -356,7 +372,8 @@
                },
         dataType: "json",
         success: function(res) {
-           alert(res);  
+                 $("#try").attr("disabled", false);
+                 $("#enroll").attr("disabled", false);
         }
       });
      console.log(ids);
@@ -415,5 +432,97 @@
             }
         }
 
+    </script>
+    <script type="text/javascript">
+             $('.btn-purchase').click(function(){
+                $('.commonError').fadeOut();
+                var submitFlag = false;
+                if($('#cardname').val() == ""){
+                    submitFlag = false;
+                    $('.cardnameError').text("Please enter name.");
+                    $('.cardnameError').css("color","red");
+                    $('.cardnameError').fadeIn();
+                }else{
+                    submitFlag = true;
+                    $('.cardnameError').fadeOut();
+                }
+                if($('#cardNumber').val() == ""){
+                    submitFlag = false;
+                    $('.cardNumberError').text("Please enter card number.");
+                     $('.cardNumberError').css("color","red");
+                    $('.cardNumberError').fadeIn();
+                }else{
+                    submitFlag = true;
+                    $('.cardNumberError').fadeOut();
+                }
+                if($('#month').val() == ""){
+                    submitFlag = false;
+                    $('.yearError').css("color","red");
+                    $('.yearError').text("Please select Expiration.");
+                    $('.yearError').fadeIn();
+                }else{
+                    submitFlag = true;
+                    $('.yearError').fadeOut();
+                }
+
+                if($('#year').val() == ""){
+                    submitFlag = false;
+                    $('.yearError').css("color","red");
+                    $('.yearError').text("Please select Expiration.");
+                    $('.yearError').fadeIn();
+                }else{
+                    submitFlag = true;
+                    $('.yearError').fadeOut();
+                }
+
+                if($('#cvv').val() == ""){
+                    submitFlag = false;
+                    $('.cvvError').css("color","red");
+                    $('.cvvError').fadeIn();
+                    $('.cvvError').text("Please enter CVV.");
+                }else{
+                    submitFlag = true;
+                    $('.cvvError').fadeOut();
+                }
+                var ids =  $('.purchase_course.active').map(function(){
+                   return $(this).attr('id');
+                }).get();
+                var total_price = $(".total_price").text();
+                var converted_total = parseInt(total_price);
+                if(submitFlag){
+
+                    $.ajax({
+                        headers: {
+                          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                        },
+                        type:"POST",
+                        url:'{{ URL("purchase") }}',
+                        data: {'fullName':$('#cardname').val(),'cardNumber':$('#cardNumber').val(),'month':$('#month').val(),'year':$('#year').val(),'cvv':$('#cvv').val(),'subscription_type':'purchase','level_id':ids,'total_price':converted_total},
+                        dataType:'json',
+                        beforeSend: function () {
+                            $("#cover-spin").show();
+                        },
+                        complete: function () {
+                            $("#cover-spin").hide();
+                        },
+                        success:function(res){
+                            if(typeof(res.data)!=="undefined"){
+                                $('.commonError').fadeIn();
+                                $('.commonError').text(res.data.error);
+                                return false;
+                            }
+                            if(res.error){
+                                $('#paymentModel').modal("hide");
+                                //$('#failMsg').modal("show");
+                                alert('fail');
+                            }else{
+                               $('#paymentModel').modal("hide");
+                               alert('done')
+                            }
+                        }
+                    });
+
+                }
+            });
     </script>
 @endsection
