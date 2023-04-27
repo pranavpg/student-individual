@@ -26,6 +26,7 @@ class DashboardController extends Controller {
                    $endPoint = "individual_course_list";
                    $student_id = Session::get('user_id_new');
                    $available_courses = curl_get($endPoint, $request);
+                   $student_staus = array_column($available_courses['courses'],'student_course_status');
                    return view('dashboard.purchase_courses', compact('request','available_courses','student_id'));
             }
             $onlyCourse     = $data['student_courses'];
@@ -95,6 +96,10 @@ class DashboardController extends Controller {
              $endPoint       = "course_trial";   
          }
          $data           = curl_post($endPoint,$request1);
+         if($data['success'] == true OR $data['success'] == 'true')
+         {
+            Session::put('is_enrolled',true);
+         }
          return response()->json($data);
     }
     public function register(Request $request)
