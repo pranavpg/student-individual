@@ -73,6 +73,14 @@ class DashboardController extends Controller {
          $request1['email']       =  '';//Session::get('token');
          $request1['amount']      =  $params['total_price'];
          $request1['token_app_type'] = 'ieuk_new';
+         $courses  = $params['course_id'];
+
+         foreach($courses as $key => $value)
+         {
+            $request1['courses'][$key]['course_id']  = $value;
+            $request1['courses'][$key]['level_id']   = $params['level_id'][$key];
+            $request1['courses'][$key]['leveltitle'] = $params['leveltitle'][$key];
+         } 
          // $request1['email']  = "pranav.gev@yopmail.com";
          //array('student_id' => Session::get('user_id_new'),'token' => Session::get('token'),'token_app_type' => 'ieuk_new');
          // $level_id = $params['level_id'];//dd($params);
@@ -83,9 +91,14 @@ class DashboardController extends Controller {
              $request1['month']       =  $params['month'];
              $request1['year']        =  $params['year'];
              $request1['cvv']         =  $params['cvv'];
+             $endPoint       = "course_payment";
+         }
+         else
+         {
+             $endPoint       = "course_trial";   
          }
          // dd($request1);
-         $endPoint       = "course_payment";
+         // dd(json_encode($request1));
          $data           = curl_post($endPoint,$request1);
          return response()->json($data);
     }

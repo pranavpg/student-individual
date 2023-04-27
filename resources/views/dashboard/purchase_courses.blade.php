@@ -157,9 +157,108 @@
     height: 36px;
     font-size: 15px;
 }
+/************************* Success Payment *************************/
+
+.success-modal .modal-body{
+    padding: 7rem 2rem 2rem 2rem;
+}
+
+.success-modal .modal-close-1 button{
+    border: 7px solid #fdfdfd;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    font-size: 20px;
+    background-color: #7fcc7f;
+    color: #fff;
+    position: absolute;
+    top: -36px;
+}
+
+.success-modal .modal-close .close-modal {
+    position: absolute;
+    cursor: pointer;
+    top: -16px;
+    right: -11px;
+    height: 34px;
+    width: 34px;
+    background: #fafafa;
+    border: 1px solid #3a3f44;
+    border-radius: 50%;
+    font-size: 11px;
+    color: #05080b;
+    z-index: 5;
+    transition: .4s;
+}
 
 
-    </style>
+.success-header .success-title{
+    color: #7fcc7f;
+}
+
+.success-modal .success-body{
+    padding: 1rem;
+    background-color: #fafafa;
+}
+
+.success-modal .success-body ul li span{
+    font-size: 16px;
+}
+
+.success-modal .success-body ul li .success-title{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/************************* Failed Payment *************************/
+
+.fail-modal .modal-body{
+    padding: 7rem 2rem 2rem 2rem;
+}
+
+.fail-modal .modal-close button{
+    border: 7px solid #fdfdfd;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    font-size: 20px;
+    background-color: red;
+    color: #fff;
+    position: absolute;
+    top: -36px;
+    z-index: 5;
+}
+
+
+.fail-header .fail-title{
+    color: red;
+}
+
+
+.fail-modal .fail-body{
+    padding: 1rem;
+    background-color: #fafafa;
+}
+
+.fail-modal .fail-body ul li span{
+    font-size: 16px;
+}
+
+.fail-modal .fail-body ul li .failed-title{
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.fail-buttons a.google-play{
+    height: 5rem;
+    width: 14rem;
+    border-radius: 20px;
+}
+
+.download-buttons a .button-content span{
+    font-size: 16px;
+} 
+</style>
  <main class="">
    <div class="student-new-div">
      <div class="container">
@@ -184,7 +283,7 @@
            }
          @endphp
          <div class="col-12 col-md-6">
-           <a href="javascript:void(0)" class="lev-box d-flex align-items-center justify-content-between purchase_course" id="{{$value['level_id']}}" {{$payment_class}}>
+           <a href="javascript:void(0)" class="lev-box d-flex align-items-center justify-content-between purchase_course" id="{{$value['level_id']}}" data-course="{{$value['course_id']}}" data-levelname="{{$value['leveltitle']}}" {{$payment_class}}>
              <div class="box-heading">
                <h6 class="mb-0 course-name">{{$value['coursetitle']}}</h6>
                <h4>{{$value['leveltitle']}}</h4>
@@ -198,13 +297,64 @@
         @endforeach
        </div>
        <div class="mt-4 text-center">
-         <h4 class="mb-4">Total : <span class="ml-2 total_price">0</span></h4>
+         <h4 class="mb-4">Total : <span class="ml-2 total_price">0</span>£</h4>
          <button  type="button" class="btn btn-md btn-light mr-4 btn-trial" id="try">Try Out</button>
          <button type="button" class="btn btn-md btn-danger btn-purchase-model" id="enroll">Enroll Now</button>
        </div>
      </div>
    </div>
  </main>
+ <!----------------------->
+    <div class="modal success-modal fade" id="successMsg" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="successMsg" aria-hidden="true" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+
+            <div class="modal-close-1 position-relative d-flex justify-content-center reload">
+              <button type="button" data-dismiss="modal" aria-label="Close" class="close-modal">
+              <i class="fas fa-check"></i>
+              </button>
+            </div>
+
+             <div class="modal-close reload">
+              <button type="button" data-dismiss="modal" aria-label="Close" class="close-modal">
+              <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="success-header text-center mb-5">
+                <h3 class="mb-4 success-title">Payment Success</h3>
+                <h2 id="t-text">Your transaction is Success</h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal fail-modal fade" id="failMsg" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="failMsg" data-backdrop="static" data-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-close position-relative d-flex justify-content-center">
+              <button type="button" data-dismiss="modal" aria-label="Close" class="close-modal">
+              <i class="fas fa-times"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="fail-header text-center mb-5">
+                <h3 class="mb-4 fail-title">Payment Failed</h3>
+                <h2 id="t-fail">Your transaction is Failed</h2>
+              </div>
+              <div class="fail-footer text-center mt-5">
+                <div class="download-buttons fail-buttons">
+                  <a href="#" class="google-play ml-0 mx-auto">
+                    <div class="button-content ml-0">
+                      <h6><span>Retry</span></h6>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
  <!--------------------->
  <div class="modal cc-modal fade" id="paymentModel" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop="static" data-keyboard="false">
    <div class="modal-dialog modal-dialog-centered" role="document">
@@ -317,13 +467,21 @@
     var ids =  $('.purchase_course.active').map(function(){
          return $(this).attr('id');
     }).get();
+    var course_id =  $('.purchase_course.active').map(function(){
+         return $(this).attr('data-course');
+    }).get();
+    var leveltitle =  $('.purchase_course.active').map(function(){
+         return $(this).attr('data-levelname');
+    }).get();
     var subscription_type = "trial";
     var total_price = $(".total_price").text();
     var converted_total = parseInt(total_price);
     var student_id = "edfe";
     if(converted_total > 9)
-    {
-        purchase_course(student_id,ids,converted_total,subscription_type);
+    { 
+        $("#try").attr("disabled", true);
+        $("#enroll").attr("disabled", true);
+        purchase_course(student_id,ids,converted_total,subscription_type,course_id,leveltitle);
     }
     else
     {
@@ -357,10 +515,8 @@
   //   }
     
   // });
-  function purchase_course(student_id,ids,converted_total,subscription_type)
+  function purchase_course(student_id,ids,converted_total,subscription_type,course_id,leveltitle)
   {
-      $("#try").attr("disabled", true);
-      $("#enroll").attr("disabled", true);
       $.ajax({
         type: "POST",
         url: '{{ URL("purchase") }}',
@@ -368,12 +524,46 @@
                   _token: "{{ csrf_token() }}",
                   total_price: converted_total,
                   level_id:ids,
-                  subscription_type:subscription_type
+                  subscription_type:subscription_type,
+                  course_id:course_id,
+                  leveltitle:leveltitle,
+                  subscription_type:'trial'
                },
         dataType: "json",
+        beforeSend: function () {
+                            $("#cover-spin").show();
+                        },
+        complete: function () {
+                           
+                        },
         success: function(res) {
-                 $("#try").attr("disabled", false);
-                 $("#enroll").attr("disabled", false);
+                  if(typeof(res.success)!= null){
+                     if(res.success){
+                          $("#cover-spin").hide();
+                          $('#t-text').text("Course Added successfully!!");
+                          $('#successMsg').modal("show");
+                          ("#try").attr("disabled", true);
+                          $("#enroll").attr("disabled",true);
+
+                      }else{
+                          $("#cover-spin").hide();
+                          $('#t-fail').text("Something going wrong..");
+                          $('#failMsg').modal("show");
+                          $("#try").attr("disabled", false);
+                          $("#enroll").attr("disabled", false);
+                      }       
+                  }
+                  else
+                  {
+                         $("#cover-spin").hide();
+                         $('#paymentModel').modal("hide");
+                         $('#failMsg').modal("show");
+                         $("#try").attr("disabled", false);
+                         $("#enroll").attr("disabled", false);
+                  }
+                 //       $('#successMsg').modal("show");
+                 //            }
+                
         }
       });
      console.log(ids);
@@ -434,6 +624,11 @@
 
     </script>
     <script type="text/javascript">
+              $('.reload').click(function(){
+                $("#try").attr("disabled", false);
+                $("#enroll").attr("disabled", false);
+                window.location.href= "http://individual.local/";
+              });
              $('.btn-purchase').click(function(){
                 $('.commonError').fadeOut();
                 var submitFlag = false;
@@ -487,8 +682,16 @@
                 var ids =  $('.purchase_course.active').map(function(){
                    return $(this).attr('id');
                 }).get();
+                var course_id =  $('.purchase_course.active').map(function(){
+                    return $(this).attr('data-course');
+                }).get();
+                var leveltitle =  $('.purchase_course.active').map(function(){
+                   return $(this).attr('data-levelname');
+                }).get();
                 var total_price = $(".total_price").text();
                 var converted_total = parseInt(total_price);
+                $("#try").attr("disabled", true);
+                $("#enroll").attr("disabled", true);
                 if(submitFlag){
 
                     $.ajax({
@@ -497,7 +700,7 @@
                         },
                         type:"POST",
                         url:'{{ URL("purchase") }}',
-                        data: {'fullName':$('#cardname').val(),'cardNumber':$('#cardNumber').val(),'month':$('#month').val(),'year':$('#year').val(),'cvv':$('#cvv').val(),'subscription_type':'purchase','level_id':ids,'total_price':converted_total},
+                        data: {'fullName':$('#cardname').val(),'cardNumber':$('#cardNumber').val(),'month':$('#month').val(),'year':$('#year').val(),'cvv':$('#cvv').val(),'subscription_type':'purchase','level_id':ids,'total_price':converted_total, course_id:course_id,leveltitle:leveltitle,},
                         dataType:'json',
                         beforeSend: function () {
                             $("#cover-spin").show();
@@ -513,11 +716,10 @@
                             }
                             if(res.error){
                                 $('#paymentModel').modal("hide");
-                                //$('#failMsg').modal("show");
-                                alert('fail');
+                                $('#failMsg').modal("show");
                             }else{
                                $('#paymentModel').modal("hide");
-                               alert('done')
+                                $('#successMsg').modal("show");
                             }
                         }
                     });
