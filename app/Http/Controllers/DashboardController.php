@@ -70,7 +70,7 @@ class DashboardController extends Controller {
          $request1['level_id']    =  $params['level_id'];
          $request1['student_id']  =  Session::get('user_id_new');
          $request1['token']       =  Session::get('token');
-         $request1['email']       =  '';//Session::get('token');
+         $request1['email']       =  Session::get('email');
          $request1['amount']      =  $params['total_price'];
          $request1['token_app_type'] = 'ieuk_new';
          $courses  = $params['course_id'];
@@ -81,9 +81,6 @@ class DashboardController extends Controller {
             $request1['courses'][$key]['level_id']   = $params['level_id'][$key];
             $request1['courses'][$key]['leveltitle'] = $params['leveltitle'][$key];
          } 
-         // $request1['email']  = "pranav.gev@yopmail.com";
-         //array('student_id' => Session::get('user_id_new'),'token' => Session::get('token'),'token_app_type' => 'ieuk_new');
-         // $level_id = $params['level_id'];//dd($params);
          if($params['subscription_type'] == "purchase")
          {
              $request1['fullName']    =  $params['fullName'];
@@ -97,23 +94,9 @@ class DashboardController extends Controller {
          {
              $endPoint       = "course_trial";   
          }
-         // dd($request1);
-         // dd(json_encode($request1));
          $data           = curl_post($endPoint,$request1);
          return response()->json($data);
     }
-    // public function purchase_model(Request $request)
-    // {
-    //      $params       = $request->all(); 
-    //      $request      = array(); 
-    //      $request['level_id']    =  $params['level_id'];
-    //      $request['student_id']  =  Session::get('user_id_new');
-    //      $request['token']       =  Session::get('token');
-    //      $request['amount'] =  $params['total_price'];
-    //      $request['token_app_type'] = 'ieuk_new';
-    //      $request['email']  = "pranav.gev@yopmail.com";
-    //      $html = view('dashboard.purchase-model',compact('request'))->render();
-    // }
     public function register(Request $request)
     {
          $endPoint       = "getcountry_new";
