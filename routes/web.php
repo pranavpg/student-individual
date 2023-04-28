@@ -26,13 +26,9 @@ Route::post('/rename-audio',['uses'=>'PractiseNewController@renameAudio']);
 Route::post('/get_topic_list',['uses'=>'DashboardController@getTopicList']);
 // Route::post('/login_post',['uses'=>'DashboardController@login_post']);
 Route::post('/login_post_new',['uses'=>'DashboardController@login_post_new']);
-Route::post('/test',['uses'=>'DashboardController@test']);
-Route::post('/test-with-mongo',['uses'=>'DashboardController@testMongo']);
 Route::get('/profile-create',['uses'=>'CommonController@profile']);
 Route::post('/update-profile',['uses'=>'DashboardController@updateProfile']);
 Route::post('/do-update-profile',['uses'=>'DashboardController@doUpdateProfile']);
-Route::post('/state','CommonController@getstate');
-Route::post('/getCities','CommonController@getCities');
 Route::get('/forgot-password',['uses'=>'DashboardController@forgotpassword']);
 Route::post('/forgotpassword_post',['uses'=>'DashboardController@forgotpassword_post']);
 

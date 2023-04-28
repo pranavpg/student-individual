@@ -180,63 +180,79 @@
 					<span class="nav-link__name">Teacher/Marking</span>
 				</a>
 			</li>
-		<li class="nav-item <?php if(request()->segment(1) == "profile" && empty(request()->segment(2))){ echo "active"; }?>">
-			<a class="nav-link" href="{{ URL('profile') }}">
-				<span class="nav-icon" title="Profile">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-						<defs />
-						<g fill="none" fill-rule="nonzero">
-							<path d="M-4-3h30v30H-4z" />
+			<li class="nav-item <?php if(request()->segment(1) == "purchase_course" && empty(request()->segment(2))){ echo "active"; }?>">
+				<a class="nav-link" href="{{ URL('purchase_course') }}">
+					<span class="nav-icon" title="Organiser">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+							<defs />
+							<g fill="none" fill-rule="nonzero">
+							<path d="M-3-3h30v30H-3z" />
 							<g fill="#FFF">
 								<path
-								d="M11.57 0a11.57 11.57 0 10-.007 23.14A11.57 11.57 0 0011.57 0M5.31 20.06v-1a6.26 6.26 0 0112.51 0v1a10.55 10.55 0 01-12.51 0m13.52-.85v-.15a7.27 7.27 0 10-14.53 0v.15A10.47 10.47 0 011 11.57a10.56 10.56 0 1121.11 0 10.47 10.47 0 01-3.29 7.64" />
+								d="M22 3.34h-.66v-.53a2.81 2.81 0 00-5.62 0v.53H9.24v-.53a2.81 2.81 0 10-5.62 0v.53H3a3 3 0 00-3 3v15.11a3 3 0 003 3h19a3 3 0 003-3V6.3a3 3 0 00-3-3v.04zm-5.1-.57a1.63 1.63 0 113.26 0V5h-3.22l-.04-2.23zm-12.1.04a1.63 1.63 0 013.26 0V5H4.8V2.81zM3 4.53h.66v1.1c0 .326.264.59.59.59h4.4a.59.59 0 00.59-.59v-1.1h6.52v1.1c0 .326.264.59.59.59h4.44a.59.59 0 00.59-.59v-1.1H22a1.77 1.77 0 011.81 1.77v2.94H1.18V6.3A1.78 1.78 0 013 4.53zm19 18.69H3a1.78 1.78 0 01-1.78-1.77v-11h22.59v11A1.77 1.77 0 0122 23.22z" />
 								<path
-								d="M11.59 3.41a3.91 3.91 0 102.77 1.14 3.84 3.84 0 00-2.77-1.14m2.06 6A2.91 2.91 0 119.53 5.3a2.91 2.91 0 014.12 4.11" />
+								d="M16.34 13.43l-5 4.75-2.49-2.52a.59.59 0 00-.83 0 .6.6 0 000 .84L11 19.43a.58.58 0 00.82 0l5.39-5.15a.594.594 0 10-.82-.86" />
 							</g>
 						</g>
-					</svg>
-				</span>
-				<span class="nav-link__name">Profile</span>
-			</a>
-		</li>
-
-		<li class="nav-item <?php if(request()->segment(1) == "contact-us"){ echo "active"; }?>">
-			<a class="nav-link" href="{{ URL('contact-us') }}">
-				<span class="nav-icon" title="Contact Us">
-					<img src="{{ url('public/images/contact_us.png') }}" width="30" height="30">
-				</span>
-				<span class="nav-link__name">Contact Us</span>
-			</a>
-		</li>
-
-
-		<li class="nav-item">
-			<a class="nav-link" href="javascript:void(0);" data-toggle="modal" data-target="#logout_popup" title="Logout">
-				<span class="nav-icon" title="Log Out">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
-						<defs />
-						<g fill="none" fill-rule="nonzero">
-							<path d="M-4-3h30v30H-4z" />
-							<g fill="none">
-								<path id="Stroke 1" d="M21.791 12.1208H9.75" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-								<path id="Stroke 3" d="M18.8643 9.20483L21.7923 12.1208L18.8643 15.0368" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-								<path id="Stroke 4" d="M16.3597 7.63C16.0297 4.05 14.6897 2.75 9.35974 2.75C2.25874 2.75 2.25874 5.06 2.25874 12C2.25874 18.94 2.25874 21.25 9.35974 21.25C14.6897 21.25 16.0297 19.95 16.3597 16.37" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</span>
+					<span class="nav-link__name">Purchase</span>
+				</a>
+			</li>
+			<li class="nav-item <?php if(request()->segment(1) == "profile" && empty(request()->segment(2))){ echo "active"; }?>">
+				<a class="nav-link" href="{{ URL('profile') }}">
+					<span class="nav-icon" title="Profile">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+							<defs />
+							<g fill="none" fill-rule="nonzero">
+								<path d="M-4-3h30v30H-4z" />
+								<g fill="#FFF">
+									<path
+									d="M11.57 0a11.57 11.57 0 10-.007 23.14A11.57 11.57 0 0011.57 0M5.31 20.06v-1a6.26 6.26 0 0112.51 0v1a10.55 10.55 0 01-12.51 0m13.52-.85v-.15a7.27 7.27 0 10-14.53 0v.15A10.47 10.47 0 011 11.57a10.56 10.56 0 1121.11 0 10.47 10.47 0 01-3.29 7.64" />
+									<path
+									d="M11.59 3.41a3.91 3.91 0 102.77 1.14 3.84 3.84 0 00-2.77-1.14m2.06 6A2.91 2.91 0 119.53 5.3a2.91 2.91 0 014.12 4.11" />
+								</g>
 							</g>
-						</g>
-					</svg>
-				</span>
-				<span class="nav-link__name">Log Out</span>
-			</a>
-		</li>
-		<hr style="width: 100%;border-top: 1px solid #ffffff;">
-		<li class="nav-item">
-			<a class="nav-link chat-support" href="javascript:void(0);">
-				<span class="nav-icon" title="Chat Support">
-					<img src="{{ url('public/images/contactus-04.svg') }}" width="30" height="30">
-				</span>
-				<span class="nav-link__name">Chat Support</span>
-			</a>
-		</li>
+						</svg>
+					</span>
+					<span class="nav-link__name">Profile</span>
+				</a>
+			</li>
+			<li class="nav-item <?php if(request()->segment(1) == "contact-us"){ echo "active"; }?>">
+				<a class="nav-link" href="{{ URL('contact-us') }}">
+					<span class="nav-icon" title="Contact Us">
+						<img src="{{ url('public/images/contact_us.png') }}" width="30" height="30">
+					</span>
+					<span class="nav-link__name">Contact Us</span>
+				</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="javascript:void(0);" data-toggle="modal" data-target="#logout_popup" title="Logout">
+					<span class="nav-icon" title="Log Out">
+						<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24">
+							<defs />
+							<g fill="none" fill-rule="nonzero">
+								<path d="M-4-3h30v30H-4z" />
+								<g fill="none">
+									<path id="Stroke 1" d="M21.791 12.1208H9.75" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+									<path id="Stroke 3" d="M18.8643 9.20483L21.7923 12.1208L18.8643 15.0368" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+									<path id="Stroke 4" d="M16.3597 7.63C16.0297 4.05 14.6897 2.75 9.35974 2.75C2.25874 2.75 2.25874 5.06 2.25874 12C2.25874 18.94 2.25874 21.25 9.35974 21.25C14.6897 21.25 16.0297 19.95 16.3597 16.37" stroke="#FFFFFF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+								</g>
+							</g>
+						</svg>
+					</span>
+					<span class="nav-link__name">Log Out</span>
+				</a>
+			</li>
+			<hr style="width: 100%;border-top: 1px solid #ffffff;">
+			<li class="nav-item">
+				<a class="nav-link chat-support" href="javascript:void(0);">
+					<span class="nav-icon" title="Chat Support">
+						<img src="{{ url('public/images/contactus-04.svg') }}" width="30" height="30">
+					</span>
+					<span class="nav-link__name">Chat Support</span>
+				</a>
+			</li>
 	</ul>
 </nav>
 </aside>
