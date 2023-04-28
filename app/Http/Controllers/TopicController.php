@@ -16,7 +16,6 @@ class TopicController extends Controller {
             \Session::flush();
            return redirect('/');
         }
-  
         $CourseDetails      = "";
         $practiceId         = $request['n'];
         $endPoint           = "topic_task_list";
@@ -26,8 +25,13 @@ class TopicController extends Controller {
         $data               = array('topic_id' => $topicId,'student_id' => Session::get('user_id_new'),'token' => Session::get('token'),'token_app_type' =>'ieuk_new','franchise_code' => $franchise_code,'topic_task_status' => $topic_task_status);
         $taskinfo           = curl_get($endPoint, $data);
         if(isset($taskinfo['invalid_token']) && $taskinfo['invalid_token']){
-          \Session::flush();
+            \Session::flush();
           return redirect('/')->with('message',$taskinfo['message']); 
+        }
+        if($taskinfo['success'] == false)
+        {
+             \Session::flush();
+             return redirect('/')->with('message',$taskinfo['message']); 
         }
         $taskIdNew          = "";
         $topic_tasks_new    = "";
@@ -57,7 +61,7 @@ class TopicController extends Controller {
         Session::put('level_id_new',$taskinfo['topic_detail']['level_id']);
         $topic_no = $taskinfo['topic_detail']['sorting'];
         $topicname = $taskinfo['topic_detail']['topicname'];
-        // dd($taskinfo);
+         //dd($taskinfo);
         return view('topics.index_topic_new', compact('topicname','taskinfo','topic_no','taskIdNew','topicId','tasks_new','taskId','topic_tasks_new','practiceId','CourseDetails','feedbackExits','feedback'));
     }
     public function  get_progress_task(Request $request) {
