@@ -20,7 +20,7 @@ class ProfileController extends Controller {
 		$request['student_id'] =  Session::get('user_id_new');
 		$request['token_app_type'] = 'ieuk_new';
 		$request['token'] =  Session::get('token');
-		$endPoint = "student_details_new";
+		$endPoint = "individual_student_details_new";
 		$response = curl_get($endPoint,$request);
         if(isset($response['invalid_token']) && $response['invalid_token']){
         	\Session::flush();
@@ -28,110 +28,6 @@ class ProfileController extends Controller {
         }
 		$instration = isset($response['page_info'])?$response['page_info']:'';
 		$profile = $response['result'];
-		$teacherlist = $response['student_teacher'];
-		$profile['student_id'] =  Session::get('user_id_new');
-		$request        = array('student_id' => Session::get('user_id_new'),'token' => Session::get('token'),'token_app_type' => 'ieuk_new');
-        $endPoint       = "individual_course_topic_list_new";
-        $data     		= curl_get($endPoint, $request);
-        if(isset($data['invalid_token']) && $data['invalid_token']){
-        	\Session::flush();
-        	return redirect('/')->with('message',$data['message']); 
-        }
-      	$onlyCourse     = $data['new_result'];
-		$endPoint = "student_class_list";
-		$response = curl_get($endPoint,$request);
-		if(isset($response['invalid_token']) && $response['invalid_token']){
-        	\Session::flush();
-        	return redirect('/')->with('message',$response['message']); 
-        }
-		if(!$response['success']){
-			$response['result'] = array();
-		}
-		$class_list_new = $response['result'];
-		$data['ethnicity'] = [
-			'White British',
-			'White Irish',
-			'Any other White Background',
-			'Mixed White and Black Caribbean',
-			'Mixed White and Black African',
-			'Mixed White and Asian',
-			'Any other Mixed Background',
-			'Indian',
-			'Pakistani',
-			'Bangladeshi',
-			'Any other Asian Background',
-			'Caribbean',
-			'African',
-			'Any other Black Background',
-			'Chinese',
-			'Any Other Ethnic Group',
-			'Not stated'
-		];
-		$data['employment_status'] = [
-			'Not Specified',
-			'Full time student',
-			'Employed full time',
-			'Employed part time',
-			'Unemployed and seeking work',
-			'Unemployed and not seeking work',
-			'Registered Unemployed-Seeking Work'
-
-		];
-		$data['ability_status'] = [
-		  "Learner considers that they have a disability",
-		  "Learner consider that they don't have a disability",
-		  "No information provided"
-
-		];
-		$data['course_type'] = [
-			"General English",
-			"Academic English",
-			"Businesss English",
-			"IELTS",
-			"TOEFl",
-			"CAE"
-		];
-		$data['english_level'] = [
-			"Beginners",
-			"Elementary",
-			"Pre-Intermediate",
-			"Intermediate",
-			"Upper-Intermediate",
-			"Advanced",
-			"Proficiency"
-		];
-		$data['age_group'] = [
-			"5-12",
-			"13-19",
-			"20-25",
-			"26-30",
-			"31-35",
-			"36-40",
-			"41-50",
-			"50+"
-		];
-		$data['teaching_days'] = [
-			"Monday",
-			"Tuesday",
-			"Wednesday",
-			"Thursday",
-			"Friday",
-			"Saturday",
-			"Sunday"
-		];
-		$data['qualification_level'] = [
-			"PhD",
-			"Master",
-			"Undergraduate",
-			"Diploma",
-			"Other"
-		]; 
-		$data['taught_at'] = [
-			"Primary School",
-			"High School",
-			"College & University",
-			"Other"
-		];
 		$endPoint = "getcountry_new";
 	   	$response = curl_get($endPoint, $request);
 	   	if(isset($response['invalid_token']) && $response['invalid_token']){
@@ -139,8 +35,8 @@ class ProfileController extends Controller {
         	return redirect('/')->with('message',$response['message']); 
         }
       	$countries = $response['result'];
-
-		return view('profile.index',compact('profile','data','teacherlist','class_list_new','countries','instration','onlyCourse'));
+       // dd($profile);
+		return view('profile.index',compact('profile','countries','instration'));
     }
     public function contactUs(Request $request) {
     	$request = array();
@@ -159,7 +55,6 @@ class ProfileController extends Controller {
 		if(!$response['success']){
 			$response['result'] = array();
 		}
-		// dd($response);
 		$userdata = $response['result'];
 		$ieuk_socialmedia = isset($response['ieuk_socialmedia'])?$response['ieuk_socialmedia']:"";
         return view('dashboard.contactus',compact('userdata','ieuk_socialmedia'));
@@ -176,15 +71,15 @@ class ProfileController extends Controller {
 		$requestPayLoad['token_app_type'] 	= 'ieuk_new';
 		$requestPayLoad['token'] 			= Session::get('token');
 		$requestPayLoad['student_image']    = $filedata;
-		$endPoint = "updatestudent_new";
-		Session::put('first_name', $request['firstname']);
-		Session::put('last_name', $request['lastname']);
+		$endPoint = "individual_updatestudent_new";
 		$response = curl_post($endPoint,$requestPayLoad);
 		if(empty($response)){
 			return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200); 
 		}elseif(isset($response['success']) && !$response['success']){
 			return response()->json(['success'=>false,'message'=>$response['message']], 200); 
 		}elseif(isset($response['success']) && $response['success']){
+			Session::put('first_name', $request['firstname']);
+            Session::put('last_name', $request['lastname']);
 			return response()->json(['success'=>true,'message'=>"You have successfully updated your profile."], 200); 
 		}
     }
@@ -212,7 +107,7 @@ class ProfileController extends Controller {
 		$request['token'] = Session::get('token');
 		$request['old_password'] = $params['old_password'];
 		$request['new_password'] = $params['new_password'];
-		$endPoint = "update_student_password";
+		$endPoint = "individual_update_student_password";
 		$response = curl_post($endPoint,$request);
 		if(empty($response)){
 			return response()->json(['success'=>false,'message'=>'Something went wrong. Please try after some time.'], 200); 
@@ -266,11 +161,6 @@ class ProfileController extends Controller {
             $response['result'] = array();
         }
         $student_ilps = $response['result'];
-
-        // if(!$response['success']) {
-        //     $response['teacher_ilps'] = array();
-        // }
-        // $teacher_ilps = $response['teacher_ilps'];
 		$stdtname = "";
 		$request        = array('student_id' => Session::get('user_id_new'),'token' => Session::get('token'),'token_app_type' => 'ieuk_new');
         $endPoint       = "individual_course_topic_list_new";
