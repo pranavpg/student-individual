@@ -242,10 +242,12 @@
 								</select>
 							</div>
 							<div class="col-12 col-sm-6 col-md-6 col-lg-8 col-xl-8 d-none d-xl-block">
-								<?php	if(count($coursesDataList['result'])>2) { ?>
+								<?php	if(count($coursesDataList['result'])>2) { 
+									?>
 									<select class="col-md-4 form-control clickable-course-link custom-select2-dropdown-nosearch" id="course-dropdown_2">
+									    <option value="">Select Course</option>
 										@foreach($coursesDataList['result'] as $key => $course)
-										<option value="{{$course['course']['_id']}}">{{$course['course']['coursetitle']}}</option>
+										<option value="{{$course['course']['_id']}}_{{$course['level_id']}}">{{$course['course']['coursetitle']}}({{$course['level']['leveltitle']}})</option>
 										@endforeach
 									</select>
 								<?php } else { ?>
@@ -500,7 +502,7 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 	var topicurl = "{{ url('/topic-iframe/') }}";
 	var taskS = "all";
 	
-	function getAlldata(flag) {
+	async function  getAlldata(flag) {
 		if ( $.fn.DataTable.isDataTable('.newdata') ) {
 		  $('.newdata').DataTable().destroy();
 		}
@@ -508,12 +510,14 @@ aria-labelledby="exampleModalLabel" aria-hidden="true">
 			var couseId = $('.nav-pills_switch').find('li:eq(0)').attr("data") != ""?$('.nav-pills_switch').find('li:eq(0)').attr("data"):$('#course-dropdown_2:eq(0)').val();
 			var levelId = $('.nav-pills_switch').find('li:eq(0)').attr("data") != ""?$('.nav-pills_switch').find('li:eq(0)').attr("data-level"):$('#course-dropdown_2:eq(0)').val();
 		    // data-level="{{$course['_id']}}"
-
 		}else{
-			var couseId = $('.nav-pills_switch').find(".active").parent("li").attr("data")!=""?$('.nav-pills_switch').find(".active").parent("li").attr("data"):$('#course-dropdown_2').val();
-			var levelId = $('.nav-pills_switch').find(".active").parent("li").attr("data")!=""?$('.nav-pills_switch').find(".active").parent("li").attr("data-level"):$('#course-dropdown_2').val();
+			// var couseId = $('.nav-pills_switch').find(".active").parent("li").attr("data")!=""?$('.nav-pills_switch').find(".active").parent("li").attr("data"):$('#course-dropdown_2').val();
+			// var levelId = $('.nav-pills_switch').find(".active").parent("li").attr("data")!=""?$('.nav-pills_switch').find(".active").parent("li").attr("data-level"):$('#course-dropdown_2').val();
+			 var e = document.getElementById("course-dropdown_2");
+             var course_arg = e.value.split("_");
+             var couseId =  course_arg[0];  
+             var levelId =  course_arg[1];  
 		}
-		
 		$.ajax({
 			url: '<?php echo URL('/getExcercise'); ?>',
 			type: 'get',
